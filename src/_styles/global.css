@@ -1,3 +1,11 @@
+/* THEME */
+:root {
+  --color-offblack: oklch(0.1822 0 0);
+  --color-red: oklch(65.32% 0.2202 25.76);
+  --color-offwhite: oklch(0.9731 0 0);
+  --color-blue: oklch(0.4645 0.2992 269.05);
+}
+
 /* CORE */
 *,
 *:before,
@@ -10,6 +18,19 @@
 }
 html {
   font-size: 62.5%;
+  font-family:
+    "Rajdhani",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 @media (prefers-reduced-motion: no-preference) {
   html {
@@ -19,9 +40,6 @@ html {
 }
 body {
   position: relative;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
