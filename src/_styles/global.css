@@ -4,6 +4,12 @@
   --color-red: oklch(65.32% 0.2202 25.76);
   --color-offwhite: oklch(0.9731 0 0);
   --color-blue: oklch(0.4645 0.2992 269.05);
+
+  --clrBg: var(--color-blue);
+  --clrText: var(--color-offwhite);
+}
+:root[data-theme="dark"] {
+  --clrBg: var(--color-offblack);
 }
 
 /* CORE */
@@ -31,6 +37,8 @@ html {
     "Droid Sans",
     "Helvetica Neue",
     sans-serif;
+  color: var(--clrText);
+  background-color: var(--clrBg);
 }
 @media (prefers-reduced-motion: no-preference) {
   html {
