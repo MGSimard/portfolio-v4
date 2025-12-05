@@ -1,8 +1,10 @@
 /* THEME */
 :root {
   --color-offblack: oklch(0.1822 0 0);
+  --color-iridium: oklch(0.3457 0.0052 286.13);
   --color-offwhite: oklch(0.9731 0 0);
   --color-eggshell: oklch(0.9 0.0112 243.67);
+  --color-silver: oklch(0.74 0.0071 233.68);
   --color-red: oklch(65.32% 0.2202 25.76);
   --color-green: oklch(0.808 0.1685 126.11);
   --color-blue: oklch(0.4645 0.2992 269.05);
@@ -10,11 +12,12 @@
   --clrBg: var(--color-eggshell);
   --clrText: var(--color-offblack);
   --clrDetail: oklch(from var(--clrText) l c h / 0.7);
-  --clrBorder: oklch(from var(--clrText) l c h / 0.5);
+  --clrBorder: var(--color-silver);
 }
 :root[data-theme="dark"] {
   --clrBg: var(--color-offblack);
   --clrText: var(--color-offwhite);
+  --clrBorder: var(--color-iridium);
 }
 
 /* CORE */
@@ -155,6 +158,7 @@ code {
 
   &:nth-child(2) div {
     background: var(--clrBorder);
+    border-color: transparent;
   }
 }
 .card-footer button div {
