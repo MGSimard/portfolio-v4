@@ -150,6 +150,11 @@ code {
   gap: 0.8rem;
   background: none;
   border: none;
+
+  &:nth-child(2) div {
+    background-color: var(--clrBorder);
+    border: none;
+  }
 }
 .card-footer button div {
   display: grid;
