@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.17.0",
-    "@tailwindcss/vite": "^4.1.17",
     "@tanstack/react-devtools": "^0.8.2",
     "@tanstack/react-router": "^1.139.14",
     "@tanstack/react-router-devtools": "^1.139.14",
@@ -24,7 +23,6 @@
     "lucide-react": "^0.555.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
-    "tailwindcss": "^4.1.17",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
@@ -44,12 +42,10 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^16.5.0",
-    "jsdom": "^27.2.0",
     "prettier": "^3.7.4",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.48.1",
     "vite": "^7.2.6",
-    "vitest": "^4.0.15",
     "web-vitals": "^5.1.0",
     "wrangler": "^4.53.0"
   },
