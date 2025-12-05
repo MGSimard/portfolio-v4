@@ -4,9 +4,12 @@
   --color-red: oklch(65.32% 0.2202 25.76);
   --color-offwhite: oklch(0.9731 0 0);
   --color-blue: oklch(0.4645 0.2992 269.05);
+  --color-green: oklch(0.808 0.1685 126.11);
 
   --clrBg: var(--color-blue);
   --clrText: var(--color-offwhite);
+  --clrDetail: oklch(from var(--clrText) l c h / 0.7);
+  --clrBorder: oklch(from var(--clrText) l c h / 0.5);
 }
 :root[data-theme="dark"] {
   --clrBg: var(--color-offblack);
@@ -66,6 +69,10 @@ button,
 textarea,
 select {
   font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
 }
 h1,
 h2,
@@ -94,4 +101,60 @@ code {
 }
 #root {
   isolation: isolate;
+}
+/* CARD TEST */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+  max-width: 64rem;
+  padding: 2.4rem;
+  border: 0.1rem solid var(--clrBorder);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.6rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 0.1rem solid var(--clrBorder);
+}
+.card-title span {
+  color: var(--color-green);
+}
+.card-status {
+  color: var(--color-red);
+}
+.card-body h2 {
+  color: var(--clrDetail);
+  border-bottom: 0.1rem solid var(--clrBorder);
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.6rem;
+}
+.card-footer ul {
+  list-style: none;
+  color: var(--clrDetail);
+  font-size: 1.2rem;
+}
+.card-footer > div {
+  display: flex;
+  gap: 2.4rem;
+}
+.card-footer button {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: none;
+  border: none;
+}
+.card-footer button div {
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border: 0.1rem solid var(--clrBorder);
 }

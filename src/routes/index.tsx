@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Card } from "@/_components/Card";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -7,7 +8,7 @@ export const Route = createFileRoute("/")({
 function App() {
   return (
     <div>
-      <h1>MGSIMARD</h1>
+      <Card />
     </div>
   );
 }
