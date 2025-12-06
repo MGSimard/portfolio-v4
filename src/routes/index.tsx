@@ -22,7 +22,13 @@ function App() {
         <DialogContent>
           <DialogTitle>Title</DialogTitle>
           <DialogDescription>Description</DialogDescription>
-          <DialogClose render={<Button type="button">Close</Button>} />
+          <DialogClose
+            render={
+              <Button type="button" variant="link">
+                Close
+              </Button>
+            }
+          />
         </DialogContent>
       </Dialog>
     </div>
