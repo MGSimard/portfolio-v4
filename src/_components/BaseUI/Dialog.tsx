@@ -1,25 +1,40 @@
-import { Dialog as BUIDialog } from "@base-ui-components/react/dialog";
+import { Dialog as BaseDialog } from "@base-ui-components/react/dialog";
+import { cn } from "@/_lib/utils";
 
-export function Dialog() {
+function Dialog({ ...props }: React.ComponentProps<typeof BaseDialog.Root>) {
+  return <BaseDialog.Root {...props} />;
+}
+
+function DialogTrigger({ ...props }: React.ComponentProps<typeof BaseDialog.Trigger>) {
+  return <BaseDialog.Trigger {...props} />;
+}
+
+function DialogClose({ ...props }: React.ComponentProps<typeof BaseDialog.Close>) {
+  return <BaseDialog.Close {...props} />;
+}
+
+function DialogTitle({ className, ...props }: React.ComponentProps<typeof BaseDialog.Title>) {
+  return <BaseDialog.Title className={cn("-mt-1.5 mb-1 text-lg font-medium", className)} {...props} />;
+}
+
+function DialogDescription({ className, ...props }: React.ComponentProps<typeof BaseDialog.Description>) {
+  return <BaseDialog.Description className={cn("mb-6 text-base text-gray-600", className)} {...props} />;
+}
+
+function DialogContent({ className, children, ...props }: React.ComponentProps<typeof BaseDialog.Popup>) {
   return (
-    <BUIDialog.Root>
-      <BUIDialog.Trigger className="flex h-10 items-center justify-center rounded-md border border-gray-200 bg-gray-50 px-3.5 text-base font-medium text-gray-900 select-none hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-gray-100">
-        View notifications
-      </BUIDialog.Trigger>
-      <BUIDialog.Portal>
-        <BUIDialog.Backdrop className="fixed inset-0 min-h-dvh bg-black opacity-20 transition-all duration-150 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 dark:opacity-70 supports-[-webkit-touch-callout:none]:absolute" />
-        <BUIDialog.Popup className="fixed top-1/2 left-1/2 -mt-8 w-96 max-w-[calc(100vw-3rem)] -translate-x-1/2 -translate-y-1/2 rounded-lg bg-gray-50 p-6 text-gray-900 outline outline-1 outline-gray-200 transition-all duration-150 data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0 dark:outline-gray-300">
-          <BUIDialog.Title className="-mt-1.5 mb-1 text-lg font-medium">Notifications</BUIDialog.Title>
-          <BUIDialog.Description className="mb-6 text-base text-gray-600">
-            You are all caught up. Good job!
-          </BUIDialog.Description>
-          <div className="flex justify-end gap-4">
-            <BUIDialog.Close className="flex h-10 items-center justify-center rounded-md border border-gray-200 bg-gray-50 px-3.5 text-base font-medium text-gray-900 select-none hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-gray-100">
-              Close
-            </BUIDialog.Close>
-          </div>
-        </BUIDialog.Popup>
-      </BUIDialog.Portal>
-    </BUIDialog.Root>
+    <BaseDialog.Portal>
+      <BaseDialog.Backdrop className="fixed inset-0 min-h-dvh bg-black opacity-20 transition-all duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 dark:opacity-70 supports-[-webkit-touch-callout:none]:absolute" />
+      <BaseDialog.Popup
+        className={cn(
+          "fixed top-1/2 left-1/2 -mt-8 w-96 max-w-[calc(100vw-3rem)] -translate-x-1/2 -translate-y-1/2 rounded-lg bg-gray-50 p-6 text-gray-900 outline-1 outline-gray-200 transition-all duration-150 data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0 dark:outline-gray-300",
+          className
+        )}
+        {...props}>
+        {children}
+      </BaseDialog.Popup>
+    </BaseDialog.Portal>
   );
 }
+
+export { Dialog, DialogClose, DialogTrigger, DialogContent, DialogTitle, DialogDescription };
