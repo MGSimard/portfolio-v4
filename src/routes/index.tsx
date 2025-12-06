@@ -4,11 +4,13 @@ import {
   DialogClose,
   DialogContent,
   DialogDescription,
+  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/_components/BaseUI/Dialog";
 import { Button } from "@/_components/BaseUI/Button";
 import { HotkeyButton } from "@/_components/BaseUI/HotkeyButton";
+import ScrollArea from "@/_components/BaseUI/ScrollArea";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -20,14 +22,17 @@ function App() {
       Hello
       <Dialog>
         <DialogTrigger render={<Button type="button">Open Dialog</Button>} />
-        <DialogContent>
-          <DialogTitle className="flex gap-2 justify-between">
-            <h2>
-              SIGNED IN AS <span className="text-accent-green">RENZ WARD</span>
-            </h2>
-            <span className="text-accent-red">STATUS</span>
-          </DialogTitle>
-          <DialogDescription>Description</DialogDescription>
+        <DialogContent className="w-2xl">
+          <DialogHeader>
+            <DialogTitle className="flex gap-2 justify-between">
+              <h2>
+                SIGNED IN AS <span className="text-accent-green">MGSIMARD</span>
+              </h2>
+              <span className="text-accent-red">STATUS</span>
+            </DialogTitle>
+            <DialogDescription>Description</DialogDescription>
+          </DialogHeader>
+          <ScrollArea className="h-34" />
           <div className="flex gap-8 justify-end">
             <HotkeyButton type="button" variant="outline" hotkey="H">
               HELP

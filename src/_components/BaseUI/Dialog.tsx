@@ -14,11 +14,11 @@ function DialogClose({ ...props }: React.ComponentProps<typeof BaseDialog.Close>
 }
 
 function DialogTitle({ className, ...props }: React.ComponentProps<typeof BaseDialog.Title>) {
-  return <BaseDialog.Title className={cn("-mt-1.5 mb-1 text-lg font-medium", className)} {...props} />;
+  return <BaseDialog.Title className={cn("text-lg font-medium", className)} {...props} />;
 }
 
 function DialogDescription({ className, ...props }: React.ComponentProps<typeof BaseDialog.Description>) {
-  return <BaseDialog.Description className={cn("mb-6 text-base text-muted", className)} {...props} />;
+  return <BaseDialog.Description className={cn("text-base text-muted", className)} {...props} />;
 }
 
 function DialogContent({ className, children, ...props }: React.ComponentProps<typeof BaseDialog.Popup>) {
@@ -27,7 +27,7 @@ function DialogContent({ className, children, ...props }: React.ComponentProps<t
       <BaseDialog.Backdrop className="fixed inset-0 min-h-dvh bg-black opacity-20 transition-all duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 dark:opacity-70 supports-[-webkit-touch-callout:none]:absolute" />
       <BaseDialog.Popup
         className={cn(
-          "fixed top-1/2 left-1/2 -mt-8 w-96 max-w-[calc(100vw-3rem)] -translate-x-1/2 -translate-y-1/2 bg-background p-6 text-foreground outline-1 outline-border transition-all duration-150 data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0",
+          "fixed top-1/2 left-1/2 -mt-8 w-96 max-w-[calc(100vw-3rem)] -translate-x-1/2 -translate-y-1/2 flex flex-col gap-6 bg-background px-6 py-4 text-foreground outline-1 outline-border overflow-hidden transition-all duration-150 data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0",
           className
         )}
         {...props}>
@@ -37,4 +37,8 @@ function DialogContent({ className, children, ...props }: React.ComponentProps<t
   );
 }
 
-export { Dialog, DialogClose, DialogTrigger, DialogContent, DialogTitle, DialogDescription };
+function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
+  return <div className={cn("flex flex-col gap-1", className)} {...props} />;
+}
+
+export { Dialog, DialogClose, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogHeader };
