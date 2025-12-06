@@ -10,14 +10,6 @@ function App() {
     <div className="test">
       Hello
       <Dialog />
-      <img src="" alt="" />
-      <picture>
-        <source srcSet="" type="image/webp" />
-        <img src="" alt="" />
-      </picture>
-      <video src="" />
-      <canvas />
-      <svg />
     </div>
   );
 }
