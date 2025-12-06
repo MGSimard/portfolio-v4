@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Card } from "@/_components/Card";
+import { Dialog } from "@/_components/BaseUI/Dialog";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -7,8 +7,9 @@ export const Route = createFileRoute("/")({
 
 function App() {
   return (
-    <div>
-      <Card />
+    <div className="test">
+      <div className="dot"></div>Hello
+      <Dialog />
     </div>
   );
 }

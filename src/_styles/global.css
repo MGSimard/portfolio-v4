@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* THEME */
 :root {
   --color-offblack: oklch(0.1822 0 0);
@@ -13,6 +15,7 @@
   --clrText: var(--color-offblack);
   --clrDetail: oklch(from var(--clrText) l c h / 0.7);
   --clrBorder: var(--color-silver);
+  --clrPrimary: var(--color-silver);
 }
 :root[data-theme="dark"] {
   --clrBg: var(--color-offblack);
@@ -21,15 +24,6 @@
 }
 
 /* CORE */
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-  padding: 0;
-}
 html {
   font-size: 62.5%;
   font-family:
@@ -56,10 +50,24 @@ html {
 }
 body {
   position: relative;
+  height: 100dvh;
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(var(--clrBorder) 1px, transparent 1px);
+  background-size: 1.6rem 1.6rem;
+  z-index: -1;
+}
+#root {
+  isolation: isolate;
 }
 img,
 picture,
@@ -104,69 +112,10 @@ p {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-#root {
-  isolation: isolate;
-}
-/* CARD TEST */
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 2.8rem;
-  max-width: 64rem;
-  padding: 2.4rem;
-  border: 0.1rem solid var(--clrBorder);
-}
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.6rem;
-  padding-bottom: 1.2rem;
-  border-bottom: 0.1rem solid var(--clrBorder);
+/* HELPERS */
+.bold {
   font-weight: 500;
 }
-.card-title span {
-  color: var(--color-green);
-}
-.card-status {
-  color: var(--color-red);
-}
-.card-body h2 {
-  color: var(--clrDetail);
-  border-bottom: 0.1rem solid var(--clrBorder);
-}
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 1.6rem;
-}
-.card-footer ul {
-  list-style: none;
-  color: var(--clrDetail);
-  font-size: 1.2rem;
-}
-.card-footer > div {
-  display: flex;
-  gap: 2.4rem;
-}
-.card-footer button {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  background: none;
-  border: none;
-  font-weight: 500;
-  &:nth-child(2) div {
-    background: var(--clrBorder);
-    border-color: transparent;
-  }
-}
-.card-footer button div {
-  display: grid;
-  place-items: center;
-  width: 3.4rem;
-  height: 3.4rem;
-  border: 0.1rem solid var(--clrBorder);
-  font-size: 0.8em;
+.primary {
+  color: var(--clrPrimary);
 }
