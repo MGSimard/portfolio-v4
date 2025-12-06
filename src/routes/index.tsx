@@ -8,8 +8,16 @@ export const Route = createFileRoute("/")({
 function App() {
   return (
     <div className="test">
-      <div className="dot"></div>Hello
+      Hello
       <Dialog />
+      <img src="" alt="" />
+      <picture>
+        <source srcSet="" type="image/webp" />
+        <img src="" alt="" />
+      </picture>
+      <video src="" />
+      <canvas />
+      <svg />
     </div>
   );
 }
