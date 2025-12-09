@@ -9,18 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WebdevRouteImport } from './routes/webdev'
-import { Route as GamedevRouteImport } from './routes/gamedev'
+import { Route as WithHeaderRouteRouteImport } from './routes/_with-header/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WithHeaderWebdevRouteImport } from './routes/_with-header/webdev'
+import { Route as WithHeaderGamedevRouteImport } from './routes/_with-header/gamedev'
 
-const WebdevRoute = WebdevRouteImport.update({
-  id: '/webdev',
-  path: '/webdev',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GamedevRoute = GamedevRouteImport.update({
-  id: '/gamedev',
-  path: '/gamedev',
+const WithHeaderRouteRoute = WithHeaderRouteRouteImport.update({
+  id: '/_with-header',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -28,51 +23,59 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WithHeaderWebdevRoute = WithHeaderWebdevRouteImport.update({
+  id: '/webdev',
+  path: '/webdev',
+  getParentRoute: () => WithHeaderRouteRoute,
+} as any)
+const WithHeaderGamedevRoute = WithHeaderGamedevRouteImport.update({
+  id: '/gamedev',
+  path: '/gamedev',
+  getParentRoute: () => WithHeaderRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/gamedev': typeof GamedevRoute
-  '/webdev': typeof WebdevRoute
+  '/gamedev': typeof WithHeaderGamedevRoute
+  '/webdev': typeof WithHeaderWebdevRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/gamedev': typeof GamedevRoute
-  '/webdev': typeof WebdevRoute
+  '/gamedev': typeof WithHeaderGamedevRoute
+  '/webdev': typeof WithHeaderWebdevRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/gamedev': typeof GamedevRoute
-  '/webdev': typeof WebdevRoute
+  '/_with-header': typeof WithHeaderRouteRouteWithChildren
+  '/_with-header/gamedev': typeof WithHeaderGamedevRoute
+  '/_with-header/webdev': typeof WithHeaderWebdevRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths: '/' | '/gamedev' | '/webdev'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/gamedev' | '/webdev'
-  id: '__root__' | '/' | '/gamedev' | '/webdev'
+  id:
+    | '__root__'
+    | '/'
+    | '/_with-header'
+    | '/_with-header/gamedev'
+    | '/_with-header/webdev'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  GamedevRoute: typeof GamedevRoute
-  WebdevRoute: typeof WebdevRoute
+  WithHeaderRouteRoute: typeof WithHeaderRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/webdev': {
-      id: '/webdev'
-      path: '/webdev'
-      fullPath: '/webdev'
-      preLoaderRoute: typeof WebdevRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gamedev': {
-      id: '/gamedev'
-      path: '/gamedev'
-      fullPath: '/gamedev'
-      preLoaderRoute: typeof GamedevRouteImport
+    '/_with-header': {
+      id: '/_with-header'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof WithHeaderRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -82,13 +85,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_with-header/webdev': {
+      id: '/_with-header/webdev'
+      path: '/webdev'
+      fullPath: '/webdev'
+      preLoaderRoute: typeof WithHeaderWebdevRouteImport
+      parentRoute: typeof WithHeaderRouteRoute
+    }
+    '/_with-header/gamedev': {
+      id: '/_with-header/gamedev'
+      path: '/gamedev'
+      fullPath: '/gamedev'
+      preLoaderRoute: typeof WithHeaderGamedevRouteImport
+      parentRoute: typeof WithHeaderRouteRoute
+    }
   }
 }
 
+interface WithHeaderRouteRouteChildren {
+  WithHeaderGamedevRoute: typeof WithHeaderGamedevRoute
+  WithHeaderWebdevRoute: typeof WithHeaderWebdevRoute
+}
+
+const WithHeaderRouteRouteChildren: WithHeaderRouteRouteChildren = {
+  WithHeaderGamedevRoute: WithHeaderGamedevRoute,
+  WithHeaderWebdevRoute: WithHeaderWebdevRoute,
+}
+
+const WithHeaderRouteRouteWithChildren = WithHeaderRouteRoute._addFileChildren(
+  WithHeaderRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  GamedevRoute: GamedevRoute,
-  WebdevRoute: WebdevRoute,
+  WithHeaderRouteRoute: WithHeaderRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

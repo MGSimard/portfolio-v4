@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProjectDialog } from "@/_components/ProjectDialog";
 
-export const Route = createFileRoute("/webdev")({
+export const Route = createFileRoute("/_with-header/webdev")({
   component: RouteComponent,
 });
 

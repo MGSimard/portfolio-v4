@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-/* * {
+* {
   outline: 1px solid rgba(255, 0, 0, 0.2);
-} */
+}
 
 :root {
   --primary: oklch(0.74 0.0071 233.68); /* Silver */
@@ -40,6 +40,14 @@
   --color-accent-red: var(--accent-red);
   --color-accent-green: var(--accent-green);
   --color-accent-blue: var(--accent-blue);
+}
+
+/* View Transitions - morph animation for nav elements */
+::view-transition-group(nav-webdev),
+::view-transition-group(nav-gamedev),
+::view-transition-group(nav-home) {
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @layer base {
@@ -83,45 +91,45 @@
       background-size: 1rem 1rem;
       z-index: -1;
     }
-  }
-  #root {
-    isolation: isolate;
-  }
-  header {
-    flex-shrink: 0;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    overflow-wrap: break-word;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    text-wrap: balance;
-  }
-  p {
-    text-wrap: pretty;
-  }
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-  }
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-  }
-  button:not(:disabled) {
-    cursor: pointer;
+    #root {
+      isolation: isolate;
+    }
+    header {
+      flex-shrink: 0;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      overflow-wrap: break-word;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-wrap: balance;
+    }
+    p {
+      text-wrap: pretty;
+    }
+    code {
+      font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+    button:not(:disabled) {
+      cursor: pointer;
+    }
   }
 }

@@ -8,6 +8,7 @@ export const getRouter = () => {
   const router = createRouter({
     routeTree,
     defaultPreload: "intent",
+    defaultViewTransition: true,
     scrollRestoration: true,
     defaultPreloadStaleTime: 0, // Let React Query handle all caching
     defaultErrorComponent: (err) => <p>{err.error.stack}</p>,
