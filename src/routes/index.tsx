@@ -21,6 +21,9 @@ function App() {
             [ <span className="group-hover:underline">GAMEDEV</span> ]
           </Link>
         </li>
+        <li>
+          {/* DRAWER? MODAL? DIALOG? */}[ <span className="group-hover:underline">ABOUT</span> ]
+        </li>
       </ul>
     </section>
   );
