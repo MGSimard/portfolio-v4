@@ -6,24 +6,19 @@ export const Route = createFileRoute("/")({
 
 function App() {
   return (
-    <section className="grow text-center flex flex-col items-center justify-center">
-      <h1 className="text-7xl font-bold text-transparent [-webkit-text-stroke:1px_var(--color-foreground)]">
+    <section className="grow text-center flex flex-col items-center justify-center select-none">
+      <h1 className="text-7xl font-bold text-transparent [-webkit-text-stroke:1px_var(--color-foreground)] [view-transition-name:nav-home]">
         MGSIMARD
       </h1>
       <ul>
         <li>
-          <Link to="/" className="[view-transition-name:nav-home]" viewTransition>
-            HOME
+          <Link to="/webdev" className="[view-transition-name:nav-webdev] group" viewTransition>
+            [ <span className="group-hover:underline">WEBDEV</span> ]
           </Link>
         </li>
         <li>
-          <Link to="/webdev" className="[view-transition-name:nav-webdev]" viewTransition>
-            WEBDEV
-          </Link>
-        </li>
-        <li>
-          <Link to="/gamedev" className="[view-transition-name:nav-gamedev]" viewTransition>
-            GAMEDEV
+          <Link to="/gamedev" className="[view-transition-name:nav-gamedev] group hover:text-foreground" viewTransition>
+            [ <span className="group-hover:underline">GAMEDEV</span> ]
           </Link>
         </li>
       </ul>
