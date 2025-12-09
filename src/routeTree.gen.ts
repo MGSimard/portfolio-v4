@@ -9,8 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WebdevRouteImport } from './routes/webdev'
+import { Route as GamedevRouteImport } from './routes/gamedev'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WebdevRoute = WebdevRouteImport.update({
+  id: '/webdev',
+  path: '/webdev',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamedevRoute = GamedevRouteImport.update({
+  id: '/gamedev',
+  path: '/gamedev',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +31,50 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/gamedev': typeof GamedevRoute
+  '/webdev': typeof WebdevRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/gamedev': typeof GamedevRoute
+  '/webdev': typeof WebdevRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/gamedev': typeof GamedevRoute
+  '/webdev': typeof WebdevRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/gamedev' | '/webdev'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/gamedev' | '/webdev'
+  id: '__root__' | '/' | '/gamedev' | '/webdev'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GamedevRoute: typeof GamedevRoute
+  WebdevRoute: typeof WebdevRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/webdev': {
+      id: '/webdev'
+      path: '/webdev'
+      fullPath: '/webdev'
+      preLoaderRoute: typeof WebdevRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gamedev': {
+      id: '/gamedev'
+      path: '/gamedev'
+      fullPath: '/gamedev'
+      preLoaderRoute: typeof GamedevRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +87,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GamedevRoute: GamedevRoute,
+  WebdevRoute: WebdevRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

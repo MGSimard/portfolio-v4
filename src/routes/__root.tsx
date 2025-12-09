@@ -3,6 +3,7 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import appCss from "@/_styles/global.css?url";
 import fontsCss from "@/_styles/fonts.css?url";
+import { Nav } from "@/_components/Nav";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -40,11 +41,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div id="root">
-          <header>
-            <nav></nav>
-          </header>
-          <main>{children}</main>
+        <div id="root" className="flex flex-col min-h-dvh">
+          <Nav />
+          <main className="grow">{children}</main>
         </div>
         <TanStackDevtools
           config={{
