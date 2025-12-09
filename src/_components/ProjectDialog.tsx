@@ -1,3 +1,4 @@
+import type { Project } from "@/_lib/types";
 import {
   Dialog,
   DialogClose,
@@ -11,33 +12,14 @@ import { HotkeyButton } from "@/_components/BaseUI/HotkeyButton";
 import ScrollArea from "@/_components/BaseUI/ScrollArea";
 
 interface ProjectDialogProps {
-  parent: string;
-  title: string;
+  project: Project;
+  section: string;
   label: string;
-  thumbnail: string;
-  features: Array<string>;
-  type: string;
-  author: string;
-  description: React.ReactNode;
-  carouselImages?: Array<{
-    url: string;
-    alt: string;
-  }>;
-  link?: URL;
 }
 
-export function ProjectDialog({
-  parent,
-  title,
-  label,
-  thumbnail,
-  features,
-  type,
-  author,
-  description,
-  carouselImages,
-  link,
-}: ProjectDialogProps) {
+export function ProjectDialog({ project, section, label }: ProjectDialogProps) {
+  const { title, thumbnail, features, type, author, description, link, carouselImages } = project;
+
   return (
     <Dialog>
       <DialogTrigger render={<Button type="button">Open Dialog</Button>} />
@@ -45,7 +27,7 @@ export function ProjectDialog({
         <DialogHeader className="bg-background/50 p-3">
           <DialogTitle className="flex gap-8 items-center justify-between">
             <h2 className="text-2xl font-bold">
-              {parent} // <span className="text-accent-green">{title}</span>
+              {section} // <span className="text-accent-green">{title}</span>
             </h2>
             <div className="text-accent border border-accent px-4 py-1 text-sm font-normal">
               <span className="block mt-px">{label}</span>
@@ -87,6 +69,7 @@ export function ProjectDialog({
         <div className="bg-background/50 p-3">TODO: Image carousel</div>
         <div className="flex gap-8 justify-end">
           {link && (
+            /* TODO: External links noopener noreferrer */
             <HotkeyButton type="button" variant="outline" hotkey="H">
               VIEW PROJECT
             </HotkeyButton>
