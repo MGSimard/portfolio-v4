@@ -2,7 +2,7 @@ export interface Project {
   title: string;
   thumbnail: string;
   features: Array<string>;
-  type: string;
+  label: string;
   stack: string;
   author: string;
   description: string;

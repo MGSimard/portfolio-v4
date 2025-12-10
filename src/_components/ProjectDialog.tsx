@@ -14,17 +14,22 @@ import ScrollArea from "@/_components/BaseUI/ScrollArea";
 interface ProjectDialogProps {
   project: Project;
   section: string;
-  label: string;
 }
 
-export function ProjectDialog({ project, section, label }: ProjectDialogProps) {
-  const { title, thumbnail, features, type, author, description, link, carouselImages } = project;
+export function ProjectDialog({ project, section }: ProjectDialogProps) {
+  const { title, thumbnail, features, label, stack, author, description, link, carouselImages } = project;
 
   return (
     <Dialog>
-      <DialogTrigger render={<Button type="button">Open Dialog</Button>} />
+      <DialogTrigger
+        render={
+          <Button type="button" className="w-full h-full">
+            Open Dialog
+          </Button>
+        }
+      />
       <DialogContent className="w-4xl bg-transparent outline-none border-transparent gap-2">
-        <DialogHeader className="bg-background/50 p-3">
+        <DialogHeader className="bg-background/80 p-3">
           <DialogTitle className="flex gap-8 items-center justify-between">
             <h2 className="text-2xl font-bold">
               {section} // <span className="text-accent-green">{title}</span>
@@ -46,20 +51,20 @@ export function ProjectDialog({ project, section, label }: ProjectDialogProps) {
             </ul>
           </div>
           <div className="bg-background/50 p-3 flex flex-col gap-2">
-            <h3 className="uppercase text-2xl font-bold">PROJECT DESCRIPTION</h3>
+            <h3 className="uppercase text-2xl font-bold">PROJECT OVERVIEW</h3>
             <table className="text-left uppercase table-fixed w-full">
               <tbody>
-                <tr>
-                  <th className="font-medium">TYPE</th>
-                  <td className="truncate">{type}</td>
+                <tr className="align-baseline">
+                  <th className="font-medium">TITLE</th>
+                  <td>{title}</td>
                 </tr>
-                <tr>
-                  <th className="font-medium">NAME</th>
-                  <td className="truncate">{title}</td>
-                </tr>
-                <tr>
+                <tr className="align-baseline">
                   <th className="font-medium">AUTHOR</th>
-                  <td className="truncate">{author}</td>
+                  <td>{author}</td>
+                </tr>
+                <tr className="align-baseline">
+                  <th className="font-medium">STACK</th>
+                  <td className="leading-tight">{stack}</td>
                 </tr>
               </tbody>
             </table>
@@ -69,8 +74,10 @@ export function ProjectDialog({ project, section, label }: ProjectDialogProps) {
         <div className="bg-background/50 p-3">TODO: Image carousel</div>
         <div className="flex gap-8 justify-end">
           {link && (
-            /* TODO: External links noopener noreferrer */
-            <HotkeyButton type="button" variant="outline" hotkey="H">
+            <HotkeyButton
+              variant="outline"
+              hotkey="H"
+              render={<a href={link} target="_blank" rel="noopener noreferrer" />}>
               VIEW PROJECT
             </HotkeyButton>
           )}
