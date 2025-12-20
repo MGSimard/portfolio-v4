@@ -1,3 +1,4 @@
+import ReactMarkdown from "react-markdown";
 import type { Project } from "@/_lib/types";
 import {
   Dialog,
@@ -7,9 +8,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/_components/BaseUI/Dialog";
-import { Button } from "@/_components/BaseUI/Button";
 import { HotkeyButton } from "@/_components/BaseUI/HotkeyButton";
 import ScrollArea from "@/_components/BaseUI/ScrollArea";
+import { cn } from "@/_lib/utils";
 
 interface ProjectDialogProps {
   project: Project;
@@ -17,38 +18,47 @@ interface ProjectDialogProps {
 }
 
 export function ProjectDialog({ project, section }: ProjectDialogProps) {
-  const { title, thumbnail, features, label, stack, author, description, link, carouselImages } = project;
-
+  const { title, thumbnail, features, label, stack, author, description, link, githubRepo, carouselImages } = project;
   return (
     <Dialog>
       <DialogTrigger
         render={
-          <Button type="button" className="w-full h-full">
-            Open Dialog
-          </Button>
+          <button type="button" className="w-full overflow-hidden group">
+            <div className="relative w-full aspect-video border border-border p-2 bg-border group-hover:bg-border/50 group-focus-visible:bg-border/50 transition-all duration-150">
+              <img
+                src={thumbnail}
+                alt="Project Thumbnail"
+                className="w-full h-full object-cover border border-border group-hover:opacity-0 group-focus-visible:opacity-0 transition-opacity duration-150"
+              />
+              <span className="absolute text-wrap font-medium top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-150">
+                {title}
+              </span>
+            </div>
+          </button>
         }
       />
       <DialogContent className="w-4xl bg-transparent outline-none border-transparent gap-2">
-        <DialogHeader className="bg-background/80 p-3">
-          <DialogTitle className="flex gap-8 items-center justify-between">
-            <h2 className="text-2xl font-bold">
-              {section} // <span className="text-accent-green">{title}</span>
-            </h2>
-            <div className="text-accent border border-accent px-4 py-1 text-sm font-normal">
-              <span className="block mt-px">{label}</span>
-            </div>
+        <DialogHeader className="flex flex-row gap-8 items-center justify-between p-3 bg-background/80">
+          <DialogTitle className="text-2xl font-bold">
+            {section} // <span className="text-accent-green">{title}</span>
           </DialogTitle>
+          <div className="text-accent border border-accent px-4 py-1 text-sm font-normal">
+            <span className="block mt-px">{label}</span>
+          </div>
         </DialogHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-stretch">
           <div className="bg-background/50 p-3 flex flex-col gap-2">
             {/* TODO: Fallback image if fail to load */}
             <img src={thumbnail} alt="Project Image" className="w-full aspect-video object-cover max-h-48" />
             <h3 className="uppercase font-bold">KEY FEATURES</h3>
-            <ul>
-              {features.map((feature) => (
-                <li key={feature}>{feature}</li>
-              ))}
-            </ul>
+            {features.length > 0 && (
+              <ul className="list-disc list-inside">
+                {/* TODO: SQUARE BULLET POINTS */}
+                {features.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+            )}
           </div>
           <div className="bg-background/50 p-3 flex flex-col gap-2">
             <h3 className="uppercase text-2xl font-bold">PROJECT OVERVIEW</h3>
@@ -68,11 +78,21 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
                 </tr>
               </tbody>
             </table>
-            <ScrollArea className="h-48 bg-transparent">{description}</ScrollArea>
+            <ScrollArea className="h-48 bg-transparent">
+              <ReactMarkdown>{description}</ReactMarkdown>
+            </ScrollArea>
           </div>
         </div>
         <div className="bg-background/50 p-3">TODO: Image carousel</div>
         <div className="flex gap-8 justify-end">
+          {githubRepo && (
+            <HotkeyButton
+              variant="outline"
+              hotkey="G"
+              render={<a href={githubRepo} target="_blank" rel="noopener noreferrer" />}>
+              GITHUB REPO
+            </HotkeyButton>
+          )}
           {link && (
             <HotkeyButton
               variant="outline"

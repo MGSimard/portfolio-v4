@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* * {
-  outline: 1px solid rgba(255, 0, 0, 0.2);
-} */
-
 :root {
   --primary: oklch(0.74 0.0071 233.68); /* Silver */
   --background: oklch(0.9 0.0112 243.67); /* Geyser */
@@ -12,7 +8,7 @@
   --border: oklch(0.74 0.0071 233.68); /* Silver */
   --ring: oklch(0.4645 0.2992 269.05); /* ArtyClick Ultramarine */
   --accent: oklch(0.4645 0.2992 269.05); /* ArtyClick Ultramarine */
-  --accent-red: oklch(65.32% 0.2202 25.76); /* Coral Red */
+  --accent-red: oklch(0.65 0.2202 25.76); /* Coral Red */
   --accent-green: oklch(0.808 0.1685 126.11); /* Conifer */
   --accent-blue: oklch(0.4645 0.2992 269.05); /* ArtyClick Ultramarine */
 }

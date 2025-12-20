@@ -11,7 +11,7 @@ export interface Project {
     alt: string;
   }>;
   link: string;
-  githubRepo: string;
+  githubRepo?: string;
 }
 
 export interface Section {
