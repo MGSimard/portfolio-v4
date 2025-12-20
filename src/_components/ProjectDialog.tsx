@@ -23,17 +23,17 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
     <Dialog>
       <DialogTrigger
         render={
-          <button type="button" className="w-full overflow-hidden group">
-            <div className="relative w-full aspect-video border border-border p-2 bg-border group-hover:bg-border/50 group-focus-visible:bg-border/50 transition-all duration-150">
-              <img
-                src={thumbnail}
-                alt="Project Thumbnail"
-                className="w-full h-full object-cover border border-border group-hover:opacity-0 group-focus-visible:opacity-0 transition-opacity duration-150"
-              />
-              <span className="absolute text-wrap font-medium top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-150">
-                {title}
-              </span>
-            </div>
+          <button
+            type="button"
+            className="relative w-full overflow-hidden group aspect-video border border-border bg-border/50">
+            <img
+              src={thumbnail}
+              alt="Project Thumbnail"
+              className="w-full h-full object-cover group-hover:opacity-0 group-focus-visible:opacity-0 transition-opacity duration-150"
+            />
+            <span className="absolute text-wrap font-medium top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-150">
+              {title}
+            </span>
           </button>
         }
       />
