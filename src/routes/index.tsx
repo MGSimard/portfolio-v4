@@ -17,7 +17,7 @@ function App() {
           </Link>
         </li>
         <li>
-          <Link to="/gamedev" className="[view-transition-name:nav-gamedev] group hover:text-foreground" viewTransition>
+          <Link to="/gamedev" className="[view-transition-name:nav-gamedev] group" viewTransition>
             [ <span className="group-hover:underline">GAMEDEV</span> ]
           </Link>
         </li>
