@@ -41,7 +41,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div id="root" className="flex flex-col min-h-dvh px-4">
-          <main className="grow flex flex-col gap-12 max-w-7xl mx-auto w-full">{children}</main>
+          {children}
         </div>
         <TanStackDevtools
           config={{

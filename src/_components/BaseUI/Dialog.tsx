@@ -38,7 +38,7 @@ function DialogContent({ className, children, ...props }: React.ComponentProps<t
 }
 
 function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
-  return <div className={cn("flex flex-col gap-1", className)} {...props} />;
+  return <div className={cn("flex flex-col gap-1 overflow-hidden", className)} {...props} />;
 }
 
 export { Dialog, DialogClose, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogHeader };

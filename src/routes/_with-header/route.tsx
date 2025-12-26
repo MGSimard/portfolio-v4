@@ -9,7 +9,9 @@ function RouteComponent() {
   return (
     <>
       <Nav />
-      <Outlet />
+      <main className="grow flex flex-col gap-12 max-w-7xl mx-auto w-full py-12">
+        <Outlet />
+      </main>
     </>
   );
 }

@@ -46,6 +46,15 @@
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Project Dialog Content Animation */
+[data-starting-style] .project-dialog-content {
+  grid-template-rows: 0fr;
+}
+
+[data-starting-style] .project-dialog-content-item {
+  opacity: 0;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50 -outline-offset-1;
@@ -65,6 +74,7 @@
       "Droid Sans",
       "Helvetica Neue",
       sans-serif;
+    scrollbar-gutter: stable;
   }
   @media (prefers-reduced-motion: no-preference) {
     html {
@@ -77,6 +87,7 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     &::before {
       content: "";
       position: absolute;
