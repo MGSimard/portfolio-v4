@@ -38,7 +38,7 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
         }
       />
       <DialogContent className="w-4xl bg-transparent outline-none border-transparent gap-2">
-        <DialogHeader className="flex md:flex-row gap-8 items-center justify-between p-3 bg-background/80">
+        <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-accent-green truncate">
             <span className="text-foreground">{section} // </span>
             {title}
@@ -48,42 +48,22 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
           </div>
         </DialogHeader>
         <div className="project-dialog-content grid grid-rows-[1fr] overflow-hidden transition-all duration-200">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-stretch min-h-0">
-            <div className="bg-background/50 p-3 flex flex-col gap-2 overflow-hidden">
-              <img src={thumbnail} alt="Project Thumbnail" className="w-full aspect-video object-cover max-h-48 mb-2" />
-              <h3 className="uppercase font-bold">KEY FEATURES</h3>
-              {features.length > 0 && (
-                <ul className="list-[square] pl-4">
-                  {features.map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-            <div className="bg-background/50 p-3 flex flex-col gap-4 overflow-hidden">
-              <table className="text-left uppercase table-fixed w-full">
-                <tbody>
-                  <tr className="align-baseline">
-                    <th className="font-medium">TITLE</th>
-                    <td>{title}</td>
-                  </tr>
-                  <tr className="align-baseline">
-                    <th className="font-medium">AUTHOR</th>
-                    <td>{author}</td>
-                  </tr>
-                  <tr className="align-baseline">
-                    <th className="font-medium">STACK</th>
-                    <td className="leading-tight">{stack}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <ScrollArea className="h-56 bg-transparent">
-                <ReactMarkdown>{description}</ReactMarkdown>
-              </ScrollArea>
-            </div>
+          <div className="bg-background/50 p-3 flex flex-col gap-2 overflow-hidden">
+            <img src={thumbnail} alt="Project Thumbnail" className="w-full aspect-video object-cover max-h-48 mb-2" />
+            {features.length > 0 && (
+              <ul className="list-[square] pl-4">
+                {features.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+            )}
           </div>
-        </div>
-        <div className="bg-background/50 p-3 overflow-hidden">
+          {title}
+          {author}
+          {stack}
+          <ScrollArea className="h-56 bg-transparent">
+            <ReactMarkdown>{description}</ReactMarkdown>
+          </ScrollArea>
           <Carousel />
         </div>
         <div className="flex gap-8 justify-end">
