@@ -1,41 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --primary: oklch(0.74 0.0071 233.68); /* Silver */
-  --background: oklch(0.9 0.0112 243.67); /* Geyser */
-  --foreground: oklch(0.1822 0 0); /* Onyx*/
-  --muted: oklch(0.1822 0 0 / 0.7); /* Onyx */
-  --border: oklch(0.74 0.0071 233.68); /* Silver */
-  --ring: oklch(0.4645 0.2992 269.05); /* ArtyClick Ultramarine */
-  --accent: oklch(0.4645 0.2992 269.05); /* ArtyClick Ultramarine */
-  --accent-red: oklch(0.65 0.2202 25.76); /* Coral Red */
-  --accent-green: oklch(0.808 0.1685 126.11); /* Conifer */
-  --accent-blue: oklch(0.4645 0.2992 269.05); /* ArtyClick Ultramarine */
+  --coreFont:
+    "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  --secondaryFont: "Orbitron", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+  --monoFont: "JetBrains Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+
+  --primary: oklch(0.3085 0.1548 275.01);
+  --secondary: var(--primary);
+  --background: oklch(0.9098 0 0);
+  --foreground: var(--primary);
+  --muted: oklch(0.4701 0.0112 285.96);
 }
 :root[data-theme="dark"] {
-  --primary: oklch(0.3457 0.0052 286.13); /* Iridium */
-  --background: oklch(0.1822 0 0); /* Onyx */
-  --foreground: oklch(0.9731 0 0); /* White Smoke */
-  --muted: oklch(0.76 0 none / 0.7); /* Onyx */
-  --border: oklch(0.3457 0.0052 286.13); /* Iridium */
-  --ring: oklch(65.32% 0.2202 25.76); /* Coral Red */
-  --accent: oklch(65.32% 0.2202 25.76); /* Coral Red */
-  --accent-red: oklch(65.32% 0.2202 25.76); /* Coral Red */
-  --accent-green: oklch(0.808 0.1685 126.11); /* Conifer */
-  --accent-blue: oklch(0.4645 0.2992 269.05); /* ArtyClick Ultramarine */
+  --primary: oklch(0.6625 0.2045 26.71);
+  --secondary: oklch(0.8965 0.1273 200.71);
+  --background: oklch(0.1685 0.0187 284.21);
+  --foreground: var(--primary);
+  --muted: oklch(0.4701 0.0112 285.96);
 }
 
 @theme inline {
   --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
-  --color-border: var(--border);
-  --color-ring: var(--ring);
-  --color-accent: var(--accent);
-  --color-accent-red: var(--accent-red);
-  --color-accent-green: var(--accent-green);
-  --color-accent-blue: var(--accent-blue);
+
+  --color-border-idle: oklch(from var(--primary) l c h / 0.3);
+  --color-border-enabled: var(--primary);
+
+  --color-trim-idle: oklch(from var(--primary) l c h / 0.1);
+  --color-trim-enabled: oklch(from var(--primary) l c h / 0.4);
+
+  --color-ring: var(--primary);
+
+  --color-card-background: oklch(from var(--color-background) l c h / 0.8);
+  --color-card-hover: oklch(from var(--primary) l c h / 0.1);
+  --color-card-enabled: oklch(from var(--primary) l c h / 0.4);
+  --color-card-clicked: oklch(from var(--primary) l c h / 0.7);
 }
 
 /* View Transitions - morph animation for nav elements */
@@ -46,18 +50,9 @@
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Project Dialog Content Animation */
-[data-starting-style] .project-dialog-content {
-  grid-template-rows: 0fr;
-}
-
-[data-starting-style] .project-dialog-content-item {
-  opacity: 0;
-}
-
 @layer base {
   * {
-    @apply border-border outline-ring/50 -outline-offset-1;
+    @apply border-border-idle outline-ring/50 -outline-offset-1;
   }
   html {
     @apply bg-background text-foreground;

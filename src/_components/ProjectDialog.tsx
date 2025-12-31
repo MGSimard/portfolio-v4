@@ -23,9 +23,7 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
     <Dialog>
       <DialogTrigger
         render={
-          <button
-            type="button"
-            className="relative w-full overflow-hidden group aspect-video border border-border bg-border/50">
+          <button type="button" className="relative w-full overflow-hidden group aspect-video">
             <img
               src={thumbnail}
               alt="Project Thumbnail"
