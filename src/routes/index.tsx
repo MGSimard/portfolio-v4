@@ -13,17 +13,20 @@ function App() {
         </h1>
         <ul>
           <li>
-            <Link to="/webdev" className="[view-transition-name:nav-webdev] group" viewTransition>
-              [ <span className="group-hover:underline">WEBDEV</span> ]
+            <Link to="/webdev" className="[view-transition-name:nav-webdev] group outline-none" viewTransition>
+              [ <span className="group-hover:underline group-focus-visible:underline">WEBDEV</span> ]
             </Link>
           </li>
           <li>
-            <Link to="/gamedev" className="[view-transition-name:nav-gamedev] group" viewTransition>
-              [ <span className="group-hover:underline">GAMEDEV</span> ]
+            <Link to="/gamedev" className="[view-transition-name:nav-gamedev] group outline-none" viewTransition>
+              [ <span className="group-hover:underline group-focus-visible:underline">GAMEDEV</span> ]
             </Link>
           </li>
           <li>
-            {/* DRAWER? MODAL? DIALOG? */}[ <span className="group-hover:underline">ABOUT</span> ]
+            {/* DRAWER? MODAL? DIALOG? */}
+            <button type="button" className="group outline-none">
+              [ <span className="group-hover:underline group-focus-visible:underline">ABOUT</span> ]
+            </button>
           </li>
         </ul>
       </section>

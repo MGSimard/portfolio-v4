@@ -11,7 +11,6 @@ import {
   DialogTrigger,
 } from "@/_components/BaseUI/Dialog";
 import { HotkeyButton } from "@/_components/BaseUI/HotkeyButton";
-import ScrollArea from "@/_components/BaseUI/ScrollArea";
 import { cn } from "@/_lib/utils";
 
 interface ProjectDialogProps {
@@ -28,8 +27,7 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
           <button
             type="button"
             className="relative w-full aspect-[1/1.4] bg-border-idle p-px group hover:bg-border-enabled focus-visible:bg-border-enabled [clip-path:polygon(0_10px,10px_0,calc(100%-6px)_0,calc(100%-4px)_2px,calc(100%-4px)_20px,100%_24px,100%_100%,20px_100%,0_calc(100%-20px))]">
-            {/* BG-BACKGROUND WOULD GO IN THE DIV BELOW BUT HERE I WANT BG-CARD-BACKGROUND OR W/E */}
-            <div className="relative flex flex-col gap-0.5 h-full w-full bg-background [clip-path:polygon(0_10px,10px_0,calc(100%-6px)_0,calc(100%-4px)_2px,calc(100%-4px)_20px,100%_24px,100%_100%,20px_100%,0_calc(100%-20px))]">
+            <div className="relative flex flex-col gap-0.5 h-full w-full bg-card-background [clip-path:polygon(0_10px,10px_0,calc(100%-6px)_0,calc(100%-4px)_2px,calc(100%-4px)_20px,100%_24px,100%_100%,20px_100%,0_calc(100%-20px))]">
               {/* TOP TRIM */}
               <div className="shrink-0 h-12 pb-px bg-border-idle [clip-path:polygon(0_0,100%_0,100%_100%,calc(50%+20px)_100%,calc(50%+14px)_calc(100%-6px),calc(50%-14px)_calc(100%-6px),calc(50%-20px)_100%,0_100%)]">
                 <div
@@ -75,7 +73,7 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
           </>
         }>
         <DialogBody>
-          <DialogHeader className="flex items-start justify-between gap-4 border-b pb-2">
+          <DialogHeader className="flex items-start justify-between gap-4">
             <div className="min-w-0">
               <DialogTitle className="text-2xl text-accent-green truncate">{title}</DialogTitle>
               <span className="text-lg">{section}</span>
@@ -84,24 +82,37 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
               <span className="block mt-px">{label}</span>
             </div>
           </DialogHeader>
-          <ul>
-            <li>Title: {title}</li>
-            <li>Author: {author}</li>
-            <li>Stack: {stack}</li>
+          <div className="w-full border-b border-border-idle" />
+          <ul className="font-medium">
+            <li>TITLE: {title}</li>
+            <li>AUTHOR: {author}</li>
+            <li>STACK: {stack}</li>
           </ul>
-          <img src={thumbnail} alt="Project Thumbnail" className="w-full aspect-video object-cover max-h-48 mb-2" />
+          <div className="w-full border-b border-border-idle" />
+          <Carousel
+            images={[
+              { url: "https://picsum.photos/seed/1/400/225", alt: "Screenshot 1" },
+              { url: "https://picsum.photos/seed/2/400/225", alt: "Screenshot 2" },
+              { url: "https://picsum.photos/seed/3/400/225", alt: "Screenshot 3" },
+              { url: "https://picsum.photos/seed/4/400/225", alt: "Screenshot 4" },
+              { url: "https://picsum.photos/seed/5/400/225", alt: "Screenshot 5" },
+              { url: "https://picsum.photos/seed/6/400/225", alt: "Screenshot 6" },
+              { url: "https://picsum.photos/seed/7/400/225", alt: "Screenshot 7" },
+              { url: "https://picsum.photos/seed/8/400/225", alt: "Screenshot 8" },
+            ]}
+          />
           {features.length > 0 && (
-            <ul className="list-[square] pl-4">
-              {features.map((feature) => (
-                <li key={feature}>{feature}</li>
-              ))}
-            </ul>
+            <>
+              <h3 className="font-medium uppercase">KEY FEATURES</h3>
+              <ul className="list-[square] pl-4 text-secondary">
+                {features.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+            </>
           )}
-
-          <ScrollArea className="h-56 bg-transparent">
-            <ReactMarkdown>{description}</ReactMarkdown>
-          </ScrollArea>
-          <Carousel />
+          <div className="w-full border-b border-border-idle" />
+          <ReactMarkdown>{description}</ReactMarkdown>
         </DialogBody>
       </DialogContent>
     </Dialog>
