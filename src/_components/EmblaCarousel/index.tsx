@@ -31,6 +31,7 @@ export function EmblaCarousel(props: EmblaCarouselProps) {
               className="flex-[0_0_calc(25%-0.375rem)] aspect-square min-w-0 border object-cover object-center"
               src={image.url}
               alt={image.alt}
+              loading="lazy"
             />
           ))}
         </div>
