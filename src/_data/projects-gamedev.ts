@@ -534,5 +534,460 @@ Not specific to Junk Flea, but since it was developed alongside it I decided to 
         },
       ],
     },
+    {
+      section: "Tower Unite",
+      more: null,
+      projects: [
+        {
+          title: "Station 58",
+          thumbnail: "./assets/gd-thumbnails/thumb_station-58.webp",
+          label: "Level Design",
+          carouselImages: [
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_1.webp",
+              alt: "Station 58 1",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_2.webp",
+              alt: "Station 58 2",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_3.webp",
+              alt: "Station 58 3",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_4.webp",
+              alt: "Station 58 4",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_5.webp",
+              alt: "Station 58 5",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_6.webp",
+              alt: "Station 58 6",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_7.webp",
+              alt: "Station 58 7",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_8.webp",
+              alt: "Station 58 8",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_9.webp",
+              alt: "Station 58 9",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_10.webp",
+              alt: "Station 58 10",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_11.webp",
+              alt: "Station 58 11",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_12.webp",
+              alt: "Station 58 12",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_13.webp",
+              alt: "Station 58 13",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_14.webp",
+              alt: "Station 58 14",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_15.webp",
+              alt: "Station 58 15",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_16.webp",
+              alt: "Station 58 16",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_17.webp",
+              alt: "Station 58 17",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_18.webp",
+              alt: "Station 58 18",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_19.webp",
+              alt: "Station 58 19",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_20.webp",
+              alt: "Station 58 20",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_21.webp",
+              alt: "Station 58 21",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_22.webp",
+              alt: "Station 58 22",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_23.webp",
+              alt: "Station 58 23",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_24.webp",
+              alt: "Station 58 24",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_25.webp",
+              alt: "Station 58 25",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_26.webp",
+              alt: "Station 58 26",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_27.webp",
+              alt: "Station 58 27",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_28.webp",
+              alt: "Station 58 28",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_29.webp",
+              alt: "Station 58 29",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_30.webp",
+              alt: "Station 58 30",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_31.webp",
+              alt: "Station 58 31",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_32.webp",
+              alt: "Station 58 32",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_33.webp",
+              alt: "Station 58 33",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_34.webp",
+              alt: "Station 58 34",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_35.webp",
+              alt: "Station 58 35",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/station-58/station-58_36.webp",
+              alt: "Station 58 36",
+            },
+          ],
+          overview: "Station 58 is a puzzle/escape room level created in Tower Unite's Condo Editor.",
+          features: ["Level Design", "Environmental Art", "Scripting"],
+          stack: "Tower Unite",
+          description: `After a save file corruption of an initial project with multiple puzzle games, I decided to build this escape room type project. It features a couple of different puzzle mechanics and a complete story throughout the level. I also intertwined plot and video elements from an Analog Horror youtube channel titled _"Local 58"_.
+            
+After hitting a block regarding one of the final rooms, I decided to take a break and head back to Halo Infinite's Forge tool to create _"Lake Hot Pursuit"_ - this project has been on-hold ever since.
+
+#### Gameplay
+
+The puzzle mechanics presented within the level are fairly simple. I still went out of my way to learn about a couple of concepts regarding escape rooms, one of the most important being the idea of _"Lock before key"_. That is to say, you should present the problem to your player prior to giving them the tools to solve said problem. Otherwise if you give a key before the lock, the player will attempt to use the key on every lock, rather than depend on problem-solving skills. This also entertains the idea of a _"Eureka"_ moment similarly to what you would find in a Metroidvania, where the player suddenly thinks _"Oh, I can use this new tool for that one thing earlier!"_ after acquiring said tool.
+
+#### Section One - Story Setting
+
+Immediately upon arriving within the condo, players are guided to the first room. They are presented with a fairly obvious keypad. Attempting to interact with said keypad reinforces the suggestion that it requires a code, and that it should be opened. On the table, illuminated by a lamp, lies a book which players can read in order to situate themselves with their environment, and get a clue on how to proceed.
+
+From there, the players should seek to get helpful materials from within one of the lockers, as well as a cassette tape which they can play on the computer/media player on the desk. Watching the video in turns enables a trigger near a poster which is made obvious by the contents and messages of the video they've watched. Approaching said poster reveals the code for the locked keypad.
+
+#### Section Two: Finding Objects
+
+After passing the first room, it is made obvious that the following challenge requires the player to find specific key objects in order to open the garage door at the end of the room. As a placeholder, I had been using red balls. Some are hidden at different heights, other placed within boxes or behind other objects.
+
+#### Section Three: Cross-Room Interactions
+
+This section has the player interact with three different rooms at once over a slightly longer distance and back-and-forth.
+
+They're presented with a locked door, a secured airlock and the lobby where they may find a keycard which allows them to access the control room. Would the condo editor have such advanced features, the main idea would be to have an interactive scene play out to help set the tone - something that would feel a little bit like what you'd find in "Outlast".
+
+#### Section Four: Control Room
+
+Should the player be capable of solving a fairly simple puzzle within this room, they'd soon find themselves having to make a run for the airlock as its access is time limited when unlocked.
+
+#### Section Five: The Laboratory
+
+This specific area is sectioned into three different sub puzzles. The first room requires you to decypher a symbol to number code on the keypad by finding its relevant clues around the room. The second requires you to be attentive to bloodtrails in the room, along with remembering some very blatant information which was communicated near the beginning of the level, and the third gives you an idea of where you have to go in order to progress within the level as your access is blocked by a broken door access panel.
+
+This section also contains an interactive scene once players finish reading a book which clues them into entering the now unlocked admin room in the laboratory. After flickering, the lights turn to red and a menacing set of sounds play as a the doors lock and a monster briefly appears at the end of the lab. Shortly after the situation returning to normal, the doors unlock themselves and the way to the admin room is opened, where the player is then guided to return to the control room to enter through the ventilation shaft.
+
+#### Section Six: Vent Maze
+
+Fairly simple section, slightly confusing maze which eventually leads you to the area behind the broken door.
+
+#### Section Seven: Moment of Respite
+
+Once the player finds themselves on the other side of the door, they have to walk through an uneventful hallway which is where I'd generally have some kind of advanced piece of content made for storytelling.
+
+#### Section Eight: The Experimental Room
+
+At a point this room was supposed to be much smaller, or at least slightly more compact with different accessible areas. However the scope got a little large, and that was the point at which I couldn't quite make up my mind with what the room should be like, considering the limited options offered by the condo editor. I had decided to put the room on-hold and start working on the rest of the map.
+
+#### Section X: The Inbetween
+
+From that point forward, I focused on adding a few smaller story-driven sections leading up to the ending of the condo. From an interactive scene to a claustrophobic janitor closet, ultimately leading to the ending sequence in the section below.
+
+#### Section X: The Ending
+
+After falling through the world when the player believed they would make a successful escape, wondering why they had been getting deeper and deeper into the facility, the player is frozen in placed forced to stare down a long hallway. A few interactive triggers happen here, until the player is the quickly sent down the hallway to a set of doors, the doors are opened and the player snaps back to the beginning of the level while keeping the same momentum and doors opening. The player is pushed through the exit, where the entity wanted them. They take damage, and the gigantic unnerving moon appears in the sky as a line of what seem to be lifeless "people" welcomes the player amongst them.
+
+All in all, despite the clear limitations set forward by the primitive level of tower unite's condo editing tool, I do hope to eventually revisit this condo in order to finish it completely, host playthrough sessions of it and release it on the Steam workshop in time. The Tower Unite development team actually showed up and played through the level while I was AFK and forgot to lock the condo while working on it, I was pretty surprised to find out they had actually enjoyed it very much despite its unfinished and unpolished state.`,
+          link: null,
+          githubRepo: null,
+        },
+        {
+          title: "Lumbridge Castle",
+          thumbnail: "./assets/gd-thumbnails/thumb_lumbridge-castle.webp",
+          label: "Level Design",
+          carouselImages: [
+            { url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_1.webp", alt: "Lumbridge Castle 1" },
+            { url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_2.webp", alt: "Lumbridge Castle 2" },
+            { url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_3.webp", alt: "Lumbridge Castle 3" },
+            { url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_4.webp", alt: "Lumbridge Castle 4" },
+            { url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_5.webp", alt: "Lumbridge Castle 5" },
+            { url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_6.webp", alt: "Lumbridge Castle 6" },
+            { url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_7.webp", alt: "Lumbridge Castle 7" },
+            { url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_8.webp", alt: "Lumbridge Castle 8" },
+            { url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_9.webp", alt: "Lumbridge Castle 9" },
+            {
+              url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_10.webp",
+              alt: "Lumbridge Castle 10",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_11.webp",
+              alt: "Lumbridge Castle 11",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_12.webp",
+              alt: "Lumbridge Castle 12",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_13.webp",
+              alt: "Lumbridge Castle 13",
+            },
+
+            {
+              url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_15.webp",
+              alt: "Lumbridge Castle 15",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_16.webp",
+              alt: "Lumbridge Castle 16",
+            },
+            {
+              url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_17.webp",
+              alt: "Lumbridge Castle 17",
+            },
+          ],
+          overview:
+            "Faithful, nearly perfect re-creation of Oldschool Runescape's Lumbridge Castle made within the Tower Unite Condo Creator.",
+          features: ["Level Design", "Environmental Art"],
+          stack: "Tower Unite",
+          description: `For reference, Tower Unite's apartment building tool is extremely barebones. Nearly entirely made out of cubes and other primitive shapes, this is a high fidelity re-creation of Runescape's "Lumbridge Castle". Similarly to most of my other Tower Unite creations, this was made purely as a social space prior to the scripting update. Finishing the surrounding area of Lumbridge was also planned, however due to Quality of Life updates which never came, I opted to leave the map as-is since I'd rather exclude the skybox detail than make one which doesn't look exactly the way I want it to.`,
+          link: null,
+          githubRepo: null,
+        },
+        {
+          title: "Quindecim",
+          thumbnail: "./assets/gd-thumbnails/thumb_quindecim.webp",
+          label: "Level Design",
+          carouselImages: [
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_1.webp", alt: "Quindecim 1" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_2.webp", alt: "Quindecim 2" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_3.webp", alt: "Quindecim 3" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_4.webp", alt: "Quindecim 4" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_5.webp", alt: "Quindecim 5" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_6.webp", alt: "Quindecim 6" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_7.webp", alt: "Quindecim 7" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_8.webp", alt: "Quindecim 8" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_9.webp", alt: "Quindecim 9" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_10.webp", alt: "Quindecim 10" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_11.webp", alt: "Quindecim 11" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_12.webp", alt: "Quindecim 12" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_misc1.webp", alt: "Quindecim misc 1" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_misc2.webp", alt: "Quindecim misc 2" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_misc3.webp", alt: "Quindecim misc 3" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_misc4.webp", alt: "Quindecim misc 4" },
+            { url: "/assets/gamedev/tower-unite/quindecim/quindecim_misc5.webp", alt: "Quindecim misc 5" },
+          ],
+          overview:
+            'Quindecim is a re-creation of an establishment seen within an anime titled "Death Parade" and its Pilot episode, "Death Billiards".',
+          features: ["Environmental Art", "3D Modeling", "Graphic Design"],
+          stack: "Tower Unite",
+          description: `Mostly everything but the bamboo and jukebox are primitives and in-game props. Stained glass/other graphics were created as SVGs in Adobe Illustrator, Inkscape and GIMP. The Barman NPC is a character model which I created in VRoid Studio by adjusting physical features, creating hair and heavily modifying base template clothing to match that of the anime character. The model was then imported and rigged into Blender then brought over into Tower Unite.`,
+          link: null,
+          githubRepo: null,
+        },
+        {
+          title: "Exploded Cinema",
+          thumbnail: "./assets/gd-thumbnails/thumb_exploded-cinema.webp",
+          label: "Level Design",
+          carouselImages: [
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_1.webp", alt: "Exploded Cinema 1" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_2.webp", alt: "Exploded Cinema 2" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_3.webp", alt: "Exploded Cinema 3" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_4.webp", alt: "Exploded Cinema 4" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_5.webp", alt: "Exploded Cinema 5" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_6.webp", alt: "Exploded Cinema 6" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_7.webp", alt: "Exploded Cinema 7" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_8.webp", alt: "Exploded Cinema 8" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_9.webp", alt: "Exploded Cinema 9" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_10.webp", alt: "Exploded Cinema 10" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_11.webp", alt: "Exploded Cinema 11" },
+            { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_12.webp", alt: "Exploded Cinema 12" },
+          ],
+          overview: 'Inspired by the "Exploded Cinema" at the Wushang Zhongyan Mall in Wuhan, China.',
+          features: ["Level Design", "Environmental Art", "3D Modeling"],
+          stack: "Tower Unite",
+          description: `Not much to say about this creation other than the fact that it is a simple condo intended to be utilized as a movie theater. The overall look takes a few stylistic choices from a chinese theater, such as its exploded foam block walls and light fixtures, along with the design of columns protruding through surfaces.`,
+          link: null,
+          githubRepo: null,
+        },
+        {
+          title: "Misc",
+          thumbnail: "./assets/gd-thumbnails/thumb_tu-misc.webp",
+          label: "Level Design",
+          carouselImages: [
+            { url: "/assets/gamedev/tower-unite/misc/art-gallery_1.webp", alt: "Art Gallery 1" },
+            { url: "/assets/gamedev/tower-unite/misc/art-gallery_2.webp", alt: "Art Gallery 2" },
+            { url: "/assets/gamedev/tower-unite/misc/art-gallery_3.webp", alt: "Art Gallery 3" },
+            { url: "/assets/gamedev/tower-unite/misc/art-gallery_4.webp", alt: "Art Gallery 4" },
+            { url: "/assets/gamedev/tower-unite/misc/bus-stop_1.webp", alt: "Bus Stop 1" },
+            { url: "/assets/gamedev/tower-unite/misc/bus-stop_2.webp", alt: "Bus Stop 2" },
+            { url: "/assets/gamedev/tower-unite/misc/bus-stop_3.webp", alt: "Bus Stop 3" },
+            { url: "/assets/gamedev/tower-unite/misc/bus-stop_4.webp", alt: "Bus Stop 4" },
+            { url: "/assets/gamedev/tower-unite/misc/bus-stop_5.webp", alt: "Bus Stop 5" },
+            { url: "/assets/gamedev/tower-unite/misc/stairway_1.webp", alt: "Stairway 1" },
+            { url: "/assets/gamedev/tower-unite/misc/stairway_2.webp", alt: "Stairway 2" },
+            { url: "/assets/gamedev/tower-unite/misc/stairway_3.webp", alt: "Stairway 3" },
+            { url: "/assets/gamedev/tower-unite/misc/stairway_4.webp", alt: "Stairway 4" },
+            { url: "/assets/gamedev/tower-unite/misc/house_1.webp", alt: "House 1" },
+            { url: "/assets/gamedev/tower-unite/misc/house_2.webp", alt: "House 2" },
+            { url: "/assets/gamedev/tower-unite/misc/house_3.webp", alt: "House 3" },
+            { url: "/assets/gamedev/tower-unite/misc/house_4.webp", alt: "House 4" },
+            { url: "/assets/gamedev/tower-unite/misc/house_5.webp", alt: "House 5" },
+            { url: "/assets/gamedev/tower-unite/misc/house_6.webp", alt: "House 6" },
+            { url: "/assets/gamedev/tower-unite/misc/pool_1.webp", alt: "Pool 1" },
+            { url: "/assets/gamedev/tower-unite/misc/pool_2.webp", alt: "Pool 2" },
+            { url: "/assets/gamedev/tower-unite/misc/pool_3.webp", alt: "Pool 3" },
+            { url: "/assets/gamedev/tower-unite/misc/pool_4.webp", alt: "Pool 4" },
+            { url: "/assets/gamedev/tower-unite/misc/metro_1.webp", alt: "Metro 1" },
+            { url: "/assets/gamedev/tower-unite/misc/metro_2.webp", alt: "Metro 2" },
+            { url: "/assets/gamedev/tower-unite/misc/metro_3.webp", alt: "Metro 3" },
+            { url: "/assets/gamedev/tower-unite/misc/metro_4.webp", alt: "Metro 4" },
+            { url: "/assets/gamedev/tower-unite/misc/metro_5.webp", alt: "Metro 5" },
+            { url: "/assets/gamedev/tower-unite/misc/metro_6.webp", alt: "Metro 6" },
+          ],
+          overview: "Miscellaneous projects created within Tower Unite.",
+          features: ["Level Design", "Environmental Art"],
+          stack: "Tower Unite",
+          description: `Contains "Art Gallery", "Bus Stop", "Stairway", "House", "Pool", and "Metro".`,
+          link: null,
+          githubRepo: null,
+        },
+      ],
+    },
+    {
+      section: "Roblox Studio",
+      more: null,
+      projects: [
+        {
+          title: "mp_shop",
+          thumbnail: "./assets/gd-thumbnails/thumb_mp_shop.webp",
+          label: "Level Design",
+          carouselImages: [
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_1.webp", alt: "mp_shop 1" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_2.webp", alt: "mp_shop 2" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_3.webp", alt: "mp_shop 3" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_4.webp", alt: "mp_shop 4" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_5.webp", alt: "mp_shop 5" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_6.webp", alt: "mp_shop 6" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_7.webp", alt: "mp_shop 7" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_8.webp", alt: "mp_shop 8" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_9.webp", alt: "mp_shop 9" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_10.webp", alt: "mp_shop 10" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_11.webp", alt: "mp_shop 11" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_12.webp", alt: "mp_shop 12" },
+            { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_13.webp", alt: "mp_shop 13" },
+          ],
+          overview:
+            'Circa 2020. A classic re-creation of one of Soldier of Fortune II: Double Helix\'s (2002) most iconic maps known as "mp_shop".',
+          features: ["Level Design", "Environmental Art", "Graphic Design"],
+          stack: "Roblox Studio",
+          description: `_"mp_shop"_ was one of the more popular maps in the original SoF2 game, and was the one map included in the base version of the game's multiplayer test demo which used to house a very large community. Apart from the helicopter model from the asset store, everything else was made purely out of primitive objects, custom textures and decals.
+          
+The map was also widely played with custom game modes, more notably the likes of Cops & Robbers, which included custom rulesets like decreased gravity and increased movement speed. All of which could also be emulated on my own version of the map within Roblox. Though not completely finished as the map still necessitated additional furnishing in certain areas such as the kitchen and office spaces, it still contained a fully functional TDM system, spawns etc. I also took artistic liberty in populating the helipad with an elevated area, pipes and fence as the original version was simple flat roof with an H on it.`,
+          link: null,
+          githubRepo: null,
+        },
+        {
+          title: "Q3DM17",
+          thumbnail: "./assets/gd-thumbnails/thumb_q3dm17.webp",
+          label: "Level Design",
+          carouselImages: [
+            { url: "/assets/gamedev/roblox-studio/q3dm17/q3dm17_1.webp", alt: "q3dm17 1" },
+            { url: "/assets/gamedev/roblox-studio/q3dm17/q3dm17_2.webp", alt: "q3dm17 2" },
+            { url: "/assets/gamedev/roblox-studio/q3dm17/q3dm17_3.webp", alt: "q3dm17 3" },
+            { url: "/assets/gamedev/roblox-studio/q3dm17/q3dm17_4.webp", alt: "q3dm17 4" },
+            { url: "/assets/gamedev/roblox-studio/q3dm17/q3dm17_5.webp", alt: "q3dm17 5" },
+          ],
+          overview: "A remake of the original Q3DM17 map from Quake III Arena.",
+          features: ["Level Design", "Environmental Art"],
+          stack: "Roblox Studio",
+          description: `Another remake I enjoyed making a while back. This was one of my first attempts at doing primitive shape-based mapping on Roblox Studio. Experimenting with math calcs, union operations and setting up texture coordinates using the original textures from Quake.
+          
+I also learned a couple of plugin toolsets to facilitate my time since Roblox Studio lacked vertex snapping features and the likes. As stated everything apart from the teleporters are made of primitives, while the textures are ripped from Quake directly.`,
+          link: null,
+          githubRepo: null,
+        },
+        {
+          title: "Thy Kingdom Come",
+          thumbnail: "./assets/gd-thumbnails/thumb_thy-kingdom-come.webp",
+          label: "Level Design",
+          carouselImages: [
+            {
+              url: "/assets/gamedev/roblox-studio/thy-kingdom-come/thy-kingdom-come_1.webp",
+              alt: "thy-kingdom-come 1",
+            },
+            {
+              url: "/assets/gamedev/roblox-studio/thy-kingdom-come/thy-kingdom-come_2.webp",
+              alt: "thy-kingdom-come 2",
+            },
+            {
+              url: "/assets/gamedev/roblox-studio/thy-kingdom-come/thy-kingdom-come_3.webp",
+              alt: "thy-kingdom-come 3",
+            },
+            {
+              url: "/assets/gamedev/roblox-studio/thy-kingdom-come/thy-kingdom-come_4.webp",
+              alt: "thy-kingdom-come 4",
+            },
+            {
+              url: "/assets/gamedev/roblox-studio/thy-kingdom-come/thy-kingdom-come_5.webp",
+              alt: "thy-kingdom-come 5",
+            },
+          ],
+          overview: 'Based on a subsection of the "Thy Kingdom Come" level in Mirror\'s Edge Catalyst.',
+          features: ["Level Design", "Environmental Art"],
+          stack: "Roblox Studio",
+          description: `There was no particular purpose for this one other than practicing modular environment modeling entirely out of primitives in Roblox Studio. I went on to build the same level for a public world in VRChat using Blender & Unity at a later date.`,
+          link: null,
+          githubRepo: null,
+        },
+      ],
+    },
   ],
 };
