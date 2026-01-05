@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
-import { Carousel } from "./Carousel";
 import type { Project } from "@/_lib/types";
+import type { EmblaOptionsType } from "embla-carousel";
+import { EmblaCarousel } from "@/_components/EmblaCarousel";
 import {
   Dialog,
   DialogBody,
@@ -18,8 +19,52 @@ interface ProjectDialogProps {
   section: string;
 }
 
+const OPTIONS: EmblaOptionsType = { slidesToScroll: "auto" };
+// const SLIDES = [
+//   {
+//     url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+//     alt: "Image 1",
+//   },
+//   {
+//     url: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop",
+//     alt: "Image 2",
+//   },
+//   {
+//     url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop",
+//     alt: "Image 3",
+//   },
+//   {
+//     url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+//     alt: "Image 4",
+//   },
+//   {
+//     url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop",
+//     alt: "Image 5",
+//   },
+//   {
+//     url: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=600&fit=crop",
+//     alt: "Image 6",
+//   },
+//   {
+//     url: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop",
+//     alt: "Image 7",
+//   },
+//   {
+//     url: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&h=600&fit=crop",
+//     alt: "Image 8",
+//   },
+//   {
+//     url: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=600&fit=crop",
+//     alt: "Image 9",
+//   },
+//   {
+//     url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop",
+//     alt: "Image 10",
+//   },
+// ];
+
 export function ProjectDialog({ project, section }: ProjectDialogProps) {
-  const { title, thumbnail, features, label, stack, author, description, link, githubRepo, carouselImages } = project;
+  const { title, thumbnail, features, label, stack, overview, description, link, githubRepo, carouselImages } = project;
   return (
     <Dialog>
       <DialogTrigger
@@ -28,7 +73,6 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
             type="button"
             className="relative w-full aspect-[1/1.4] bg-border-idle p-px group hover:bg-border-enabled focus-visible:bg-border-enabled [clip-path:polygon(0_10px,10px_0,calc(100%-6px)_0,calc(100%-4px)_2px,calc(100%-4px)_20px,100%_24px,100%_100%,20px_100%,0_calc(100%-20px))]">
             <div className="relative flex flex-col gap-0.5 h-full w-full bg-card-background [clip-path:polygon(0_10px,10px_0,calc(100%-6px)_0,calc(100%-4px)_2px,calc(100%-4px)_20px,100%_24px,100%_100%,20px_100%,0_calc(100%-20px))]">
-              {/* TOP TRIM */}
               <div className="shrink-0 h-12 pb-px bg-border-idle [clip-path:polygon(0_0,100%_0,100%_100%,calc(50%+20px)_100%,calc(50%+14px)_calc(100%-6px),calc(50%-14px)_calc(100%-6px),calc(50%-20px)_100%,0_100%)]">
                 <div
                   className={cn(
@@ -39,7 +83,6 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
                   <span className="marquee-text inline-block font-medium whitespace-nowrap uppercase">{title}</span>
                 </div>
               </div>
-              {/* THUMBNAIL */}
               <img
                 src={thumbnail}
                 alt="Project Thumbnail"
@@ -83,26 +126,11 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
             </div>
           </DialogHeader>
           <div className="w-full border-b border-border-idle" />
-          <ul className="font-medium">
-            <li>TITLE: {title}</li>
-            <li>AUTHOR: {author}</li>
-            <li>STACK: {stack}</li>
-          </ul>
-          <div className="w-full border-b border-border-idle" />
-          <Carousel
-            images={[
-              { url: "https://picsum.photos/seed/1/400/225", alt: "Screenshot 1" },
-              { url: "https://picsum.photos/seed/2/400/225", alt: "Screenshot 2" },
-              { url: "https://picsum.photos/seed/3/400/225", alt: "Screenshot 3" },
-              { url: "https://picsum.photos/seed/4/400/225", alt: "Screenshot 4" },
-              { url: "https://picsum.photos/seed/5/400/225", alt: "Screenshot 5" },
-              { url: "https://picsum.photos/seed/6/400/225", alt: "Screenshot 6" },
-              { url: "https://picsum.photos/seed/7/400/225", alt: "Screenshot 7" },
-              { url: "https://picsum.photos/seed/8/400/225", alt: "Screenshot 8" },
-            ]}
-          />
+          <EmblaCarousel slides={carouselImages} options={OPTIONS} />
+          <p className="text-wrap">{overview}</p>
           {features.length > 0 && (
             <>
+              <div className="w-full border-b border-border-idle" />
               <h3 className="font-medium uppercase">KEY FEATURES</h3>
               <ul className="list-[square] pl-4 text-secondary">
                 {features.map((feature) => (
@@ -112,7 +140,24 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
             </>
           )}
           <div className="w-full border-b border-border-idle" />
-          <ReactMarkdown>{description}</ReactMarkdown>
+          <h3 className="font-medium uppercase">PROJECT DETAILS</h3>
+          <p className="text-sm text-flavour">{stack}</p>
+          <ReactMarkdown
+            components={{
+              a({ href, children }) {
+                return (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-secondary focus-visible:text-secondary">
+                    {children}
+                  </a>
+                );
+              },
+            }}>
+            {description}
+          </ReactMarkdown>
         </DialogBody>
       </DialogContent>
     </Dialog>

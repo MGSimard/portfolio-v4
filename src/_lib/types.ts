@@ -1,22 +1,22 @@
 export interface Project {
   title: string;
   thumbnail: string;
-  features: Array<string>;
   label: string;
-  stack: string;
-  author: string;
-  description: string;
-  carouselImages?: Array<{
+  carouselImages: Array<{
     url: string;
     alt: string;
   }>;
-  link: string;
-  githubRepo?: string;
+  overview: string;
+  features: Array<string>;
+  stack: string;
+  description: string;
+  link: string | null;
+  githubRepo: string | null;
 }
 
 export interface Section {
   section: string;
-  more: string;
+  more: string | null;
   projects: Array<Project>;
 }
 

@@ -9,6 +9,7 @@
 
   --primary: oklch(0.3085 0.1548 275.01);
   --secondary: var(--primary);
+  --flavour: oklch(0.653 0.0015 106.44);
   --background: oklch(0.9098 0 0);
   --foreground: var(--primary);
   --muted: oklch(0.4701 0.0112 285.96);
@@ -16,6 +17,7 @@
 :root[data-theme="dark"] {
   --primary: oklch(0.6625 0.2045 26.71);
   --secondary: oklch(0.8965 0.1273 200.71);
+  --flavour: oklch(0.653 0.0015 106.44);
   --background: oklch(0.1685 0.0187 284.21);
   --foreground: var(--primary);
   --muted: oklch(0.4701 0.0112 285.96);
@@ -24,6 +26,7 @@
 @theme inline {
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --color-flavour: var(--flavour);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
@@ -142,6 +145,9 @@
   h6 {
     text-wrap: balance;
   }
+  h4 {
+    font-weight: 500;
+  }
   p {
     text-wrap: pretty;
   }
@@ -160,3 +166,8 @@
     cursor: pointer;
   }
 }
+
+/* * {
+  outline: 1px solid cyan;
+  outline-offset: 0;
+} */
