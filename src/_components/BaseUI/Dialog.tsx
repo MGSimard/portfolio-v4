@@ -66,7 +66,7 @@ function DialogBody({ className, children, ...props }: React.ComponentProps<"div
             )}></div>
         </div>
         <ScrollArea.Root className="flex-1 min-w-0 min-h-0 border-l border-border-idle">
-          <ScrollArea.Viewport className="h-full overscroll-contain outline-none">
+          <ScrollArea.Viewport className="h-full overscroll-contain outline-none Viewport">
             <div className="p-4 flex flex-col gap-2">{children}</div>
           </ScrollArea.Viewport>
           <ScrollArea.Scrollbar className="m-1 flex w-1 justify-center opacity-0 transition-opacity pointer-events-none data-hovering:opacity-100 data-hovering:delay-0 data-hovering:pointer-events-auto data-scrolling:opacity-100 data-scrolling:duration-0 data-scrolling:pointer-events-auto">
