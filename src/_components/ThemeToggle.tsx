@@ -1,46 +1,62 @@
-import { Check, Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Button } from "./BaseUI/Button";
+import { useTheme } from "@/_components/ThemeProvider";
 
-import { Button } from "@/_components/shadcnui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/_components/shadcnui/dropdown-menu";
-import { THEMES, useTheme } from "@/_components/ThemeProvider";
-import { cn } from "@/_lib/utils";
-
-export function ThemeToggle({ className }: { className?: string }) {
+export function ThemeToggle() {
+  const [mounted, setMounted] = useState(false);
   const { theme: activeTheme, setTheme } = useTheme();
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className={cn("shrink-0", className)}>
-          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        {THEMES.map((themeOption) => {
-          const isActive = activeTheme === themeOption;
-          return (
-            <DropdownMenuItem
-              key={themeOption}
-              onClick={() => setTheme(themeOption)}
-              className="capitalize cursor-pointer flex items-center gap-2"
-              aria-current={isActive ? "true" : undefined}>
-              <span
-                aria-hidden="true"
-                className={cn("inline-flex justify-center text-primary", isActive ? "opacity-100" : "opacity-0")}>
-                <Check className="size-4 mt-0.5" />
-              </span>
-              {themeOption}
-            </DropdownMenuItem>
-          );
-        })}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button
+      variant="ghost"
+      size="icon"
+      className="fixed bottom-4 right-4 text-primary/50 hover:text-primary focus-visible:text-primary outline-none focus-visible:ring-1"
+      onClick={() => setTheme(activeTheme === "light" ? "dark" : "light")}>
+      {activeTheme === "light" ? <IconBoltSlash className="size-5" /> : <IconBolt className="size-5" />}
+    </Button>
+  );
+}
+
+function IconBoltSlash(props: React.ComponentProps<"svg">) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M11.412 15.655 9.75 21.75l3.745-4.012M9.257 13.5H3.75l2.659-2.849m2.048-2.194L14.25 2.25 12 10.5h8.25l-4.707 5.043M8.457 8.457 3 3m5.457 5.457 7.086 7.086m0 0L21 21"
+      />
+    </svg>
+  );
+}
+
+function IconBolt(props: React.ComponentProps<"svg">) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"
+      />
+    </svg>
   );
 }

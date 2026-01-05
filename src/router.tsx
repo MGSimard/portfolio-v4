@@ -1,6 +1,4 @@
 import { createRouter } from "@tanstack/react-router";
-
-// Import the generated route tree
 import { routeTree } from "./routeTree.gen";
 
 // Create a new router instance
@@ -10,7 +8,6 @@ export const getRouter = () => {
     defaultPreload: "intent",
     defaultViewTransition: true,
     scrollRestoration: true,
-    defaultPreloadStaleTime: 0, // Let React Query handle all caching
     defaultErrorComponent: (err) => <p>{err.error.stack}</p>,
     defaultNotFoundComponent: () => <p>not found</p>,
     Wrap: (props: { children: React.ReactNode }) => {

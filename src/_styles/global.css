@@ -9,7 +9,7 @@
 
   --primary: oklch(0.3085 0.1548 275.01);
   --secondary: var(--primary);
-  --flavour: oklch(0.653 0.0015 106.44);
+  --flavour: oklch(0.4701 0.0112 285.96);
   --background: oklch(0.9098 0 0);
   --foreground: var(--primary);
   --muted: oklch(0.4701 0.0112 285.96);

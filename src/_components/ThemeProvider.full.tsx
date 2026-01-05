@@ -3,26 +3,27 @@
  * - Zero FOUC via inline script execution
  * - Transition disabling during theme changes
  * - Cross-tab synchronization via storage events
+ * - Real-time system theme change detection
  * - Uses React 19's use() hook as useContext is now deprecated
  * - Proper colorScheme CSS property setting for browser integration
  * - Theme validation to prevent invalid states
- * - Remove system related functionalities for portfolio version as
- * communicated branding default is more important than user's system preferences
  */
-import { createContext, use, useEffect, useState } from "react";
+import { createContext, use, useEffect, useState, useSyncExternalStore } from "react";
 import { ScriptOnce } from "@tanstack/react-router";
 
-type Theme = "light" | "dark";
+type ResolvedTheme = "light" | "dark";
+type Theme = ResolvedTheme | "system";
 
 interface ThemeContextTypes {
   theme: Theme;
+  resolvedTheme: ResolvedTheme;
   setTheme: (theme: Theme) => void;
 }
 
 const ThemeContext = createContext<ThemeContextTypes | null>(null);
 
-const STORAGE_KEY = "mgsimard-theme";
-const THEMES = ["light", "dark"] as const;
+const STORAGE_KEY = "theme";
+export const THEMES = ["light", "dark", "system"] as const;
 const isBrowser = typeof window !== "undefined";
 
 interface ThemeProviderProps {
@@ -31,7 +32,8 @@ interface ThemeProviderProps {
   storageKey?: string;
 }
 
-export function ThemeProvider({ children, defaultTheme = "dark", storageKey = STORAGE_KEY }: ThemeProviderProps) {
+export function ThemeProvider({ children, defaultTheme = "system", storageKey = STORAGE_KEY }: ThemeProviderProps) {
+  // Return defaultTheme on server, sync stored value on client
   const [theme, setTheme] = useState<Theme>(() => {
     if (!isBrowser) return defaultTheme;
     try {
@@ -41,6 +43,20 @@ export function ThemeProvider({ children, defaultTheme = "dark", storageKey = ST
       return defaultTheme;
     }
   });
+
+  const fallbackResolvedTheme: ResolvedTheme = defaultTheme === "dark" ? "dark" : "light";
+
+  const getSystemResolvedTheme = (): ResolvedTheme => {
+    if (!isBrowser) return fallbackResolvedTheme;
+    try {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    } catch {
+      return fallbackResolvedTheme;
+    }
+  };
+
+  const systemTheme = useSyncExternalStore(subscribeToSystemTheme, getSystemResolvedTheme, () => fallbackResolvedTheme);
+  const resolvedTheme: ResolvedTheme = theme === "system" ? systemTheme : theme;
 
   const updateTheme = (newTheme: Theme) => {
     if (isBrowser) {
@@ -60,9 +76,9 @@ export function ThemeProvider({ children, defaultTheme = "dark", storageKey = ST
   useEffect(() => {
     if (!isBrowser) return;
     const root = document.documentElement;
-    root.setAttribute("data-theme", theme);
-    root.style.colorScheme = theme;
-  }, [theme]);
+    root.setAttribute("data-theme", resolvedTheme);
+    root.style.colorScheme = resolvedTheme;
+  }, [resolvedTheme]);
 
   useEffect(() => {
     if (!isBrowser) return;
@@ -79,18 +95,25 @@ export function ThemeProvider({ children, defaultTheme = "dark", storageKey = ST
   }, [storageKey]);
 
   return (
-    <ThemeContext value={{ theme, setTheme: updateTheme }}>
+    <ThemeContext value={{ theme, resolvedTheme, setTheme: updateTheme }}>
       <ScriptOnce>
-        {`(function(storageKey, defaultTheme) {
+        {`(function(storageKey) {
           try {
-            const themes = ['light', 'dark'];
+            const themes = ['light', 'dark', 'system'];
             const stored = localStorage.getItem(storageKey);
-            const theme = stored && themes.includes(stored) ? stored : defaultTheme;
+            const isValid = stored && themes.includes(stored) ? stored : null;
+            const prefersDark = typeof window !== 'undefined' &&
+              typeof window.matchMedia === 'function' &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const systemTheme = prefersDark ? 'dark' : 'light';
+            const resolvedPreference = isValid ?? 'system';
+            const resolved = resolvedPreference === 'system' ? systemTheme : resolvedPreference;
+            const applied = resolved === 'dark' ? 'dark' : 'light';
             const root = document.documentElement;
-            root.setAttribute('data-theme', theme);
-            root.style.colorScheme = theme;
+            root.setAttribute('data-theme', applied);
+            root.style.colorScheme = applied;
           } catch {}
-        })(${JSON.stringify(storageKey)}, ${JSON.stringify(defaultTheme)})`}
+        })(${JSON.stringify(storageKey)})`}
       </ScriptOnce>
       {children}
     </ThemeContext>
@@ -107,6 +130,25 @@ export function useTheme() {
 
 function isValidTheme(value: string): value is Theme {
   return THEMES.includes(value as Theme);
+}
+
+function subscribeToSystemTheme(onChange: () => void) {
+  if (!isBrowser || typeof window.matchMedia !== "function") {
+    return () => undefined;
+  }
+
+  try {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    if (typeof mediaQuery.addEventListener !== "function") {
+      return () => undefined;
+    }
+
+    const handler = () => onChange();
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  } catch {
+    return () => undefined;
+  }
 }
 
 function disableTransitions() {
