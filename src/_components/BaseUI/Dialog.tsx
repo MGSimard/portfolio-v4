@@ -33,7 +33,7 @@ interface DialogContentProps extends React.ComponentProps<typeof BaseDialog.Popu
 function DialogContent({ className, children, actions, ...props }: DialogContentProps) {
   return (
     <BaseDialog.Portal>
-      <BaseDialog.Backdrop className="fixed inset-0 min-h-dvh backdrop-blur-2xl bg-[rgba(0,0,0,0.7)] transition-all duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 supports-[-webkit-touch-callout:none]:absolute" />
+      <BaseDialog.Backdrop className="fixed inset-0 min-h-dvh backdrop-blur-2xl bg-background/70 transition-all duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 supports-[-webkit-touch-callout:none]:absolute" />
       <BaseDialog.Popup
         className={cn(
           "fixed flex flex-col top-1/2 left-1/2 w-96 max-w-[calc(100vw-3rem)] max-h-[calc(100dvh-3rem)] outline-0 -translate-x-1/2 -translate-y-1/2 transition-all duration-150 data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0",
