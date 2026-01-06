@@ -20,48 +20,6 @@ interface ProjectDialogProps {
 }
 
 const OPTIONS: EmblaOptionsType = { slidesToScroll: "auto" };
-// const SLIDES = [
-//   {
-//     url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
-//     alt: "Image 1",
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop",
-//     alt: "Image 2",
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop",
-//     alt: "Image 3",
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
-//     alt: "Image 4",
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop",
-//     alt: "Image 5",
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=600&fit=crop",
-//     alt: "Image 6",
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop",
-//     alt: "Image 7",
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&h=600&fit=crop",
-//     alt: "Image 8",
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=600&fit=crop",
-//     alt: "Image 9",
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop",
-//     alt: "Image 10",
-//   },
-// ];
 
 export function ProjectDialog({ project, section }: ProjectDialogProps) {
   const { title, thumbnail, features, label, stack, overview, description, link, githubRepo, carouselImages } = project;
