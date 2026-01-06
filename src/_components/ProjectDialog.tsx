@@ -55,6 +55,12 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
       />
       <DialogContent
         className="w-xl"
+        onKeyDown={(e) => {
+          if (e.defaultPrevented) return;
+          const key = e.key.toLowerCase();
+          if (key === "g" && githubRepo) window.open(githubRepo, "_blank", "noopener noreferrer");
+          if (key === "h" && link) window.open(link, "_blank", "noopener noreferrer");
+        }}
         actions={
           <>
             {githubRepo && (
