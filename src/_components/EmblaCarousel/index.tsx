@@ -40,10 +40,10 @@ export function EmblaCarousel(props: EmblaCarouselProps) {
         <div className="flex gap-2 items-center">
           <button
             type="button"
-            className="group w-12 h-8 p-px bg-border-idle touch-manipulation text-secondary disabled:saturate-0 disabled:text-muted [clip-path:polygon(0_0,100%_0,100%_100%,10px_100%,0_calc(100%-10px))]"
+            className="group w-12 h-8 p-px bg-border-idle touch-manipulation text-secondary disabled:saturate-0 active:text-background disabled:text-muted hover:enabled:bg-border-enabled focus-visible:enabled:bg-border-enabled [clip-path:polygon(0_0,100%_0,100%_100%,10px_100%,0_calc(100%-10px))]"
             onClick={onPrevButtonClick}
             disabled={prevBtnDisabled}>
-            <div className="relative w-full h-full bg-card-background grid place-items-center [clip-path:polygon(0_0,100%_0,100%_100%,10px_100%,0_calc(100%-10px))] before:content-[''] before:absolute before:inset-0 before:bg-transparent group-enabled:active:text-background group-enabled:active:before:bg-card-clicked group-enabled:hover:before:bg-card-hover group-enabled:focus-visible:before:bg-card-hover">
+            <div className="relative w-full h-full bg-card-background grid place-items-center [clip-path:polygon(0_0,100%_0,100%_100%,10px_100%,0_calc(100%-10px))] before:content-[''] before:absolute before:inset-0 before:bg-transparent group-enabled:active:before:bg-card-clicked group-enabled:hover:before:bg-card-hover group-enabled:focus-visible:before:bg-card-hover">
               <svg className="w-[35%] h-[35%] z-1" viewBox="0 0 532 532">
                 <path
                   fill="currentColor"
@@ -54,10 +54,10 @@ export function EmblaCarousel(props: EmblaCarouselProps) {
           </button>
           <button
             type="button"
-            className="group w-12 h-8 p-px bg-border-idle touch-manipulation text-secondary disabled:saturate-0 disabled:text-muted [clip-path:polygon(0_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%)]"
+            className="group w-12 h-8 p-px bg-border-idle touch-manipulation text-secondary disabled:saturate-0 active:text-background disabled:text-muted hover:enabled:bg-border-enabled focus-visible:enabled:bg-border-enabled [clip-path:polygon(0_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%)]"
             onClick={onNextButtonClick}
             disabled={nextBtnDisabled}>
-            <div className="relative w-full h-full bg-card-background grid place-items-center [clip-path:polygon(0_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%)] before:content-[''] before:absolute before:inset-0 before:bg-transparent group-enabled:active:text-background group-enabled:active:before:bg-card-clicked group-enabled:hover:before:bg-card-hover group-enabled:focus-visible:before:bg-card-hover">
+            <div className="relative w-full h-full bg-card-background grid place-items-center [clip-path:polygon(0_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%)] before:content-[''] before:absolute before:inset-0 before:bg-transparent group-enabled:active:before:bg-card-clicked group-enabled:hover:before:bg-card-hover group-enabled:focus-visible:before:bg-card-hover">
               <svg className="w-[35%] h-[35%] z-1" viewBox="0 0 532 532">
                 <path
                   fill="currentColor"
