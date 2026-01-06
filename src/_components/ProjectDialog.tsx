@@ -78,9 +78,12 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
                   className={cn(
                     "relative w-full h-full bg-background marquee-container grid place-items-center px-2",
                     "[clip-path:polygon(0_0,100%_0,100%_100%,calc(50%+20px)_100%,calc(50%+14px)_calc(100%-6px),calc(50%-14px)_calc(100%-6px),calc(50%-20px)_100%,0_100%)]",
-                    "before:content-[''] before:absolute before:inset-0 before:bg-trim-idle group-hover:before:bg-trim-enabled group-focus-visible:before:bg-trim-enabled"
+                    "before:content-[''] before:absolute before:inset-0 before:bg-trim-idle group-hover:before:bg-trim-enabled group-focus-visible:before:bg-trim-enabled",
+                    "group-active:before:bg-card-clicked"
                   )}>
-                  <span className="marquee-text inline-block font-medium whitespace-nowrap uppercase">{title}</span>
+                  <span className="marquee-text inline-block font-medium whitespace-nowrap uppercase group-active:text-background">
+                    {title}
+                  </span>
                 </div>
               </div>
               <img

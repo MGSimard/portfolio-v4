@@ -5,7 +5,6 @@
     "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   --secondaryFont: "Orbitron", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
-  --monoFont: "JetBrains Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 
   --primary: oklch(0.3085 0.1548 275.01);
   --secondary: var(--primary);
@@ -100,7 +99,6 @@
       "Droid Sans",
       "Helvetica Neue",
       sans-serif;
-    scrollbar-gutter: stable;
   }
   @media (prefers-reduced-motion: no-preference) {
     html {
@@ -192,5 +190,32 @@
     bottom: 0;
     height: min(40px, var(--scroll-area-overflow-y-end, 40px));
     background: linear-gradient(to top, var(--background), transparent);
+  }
+}
+
+@keyframes expand-right {
+  from {
+    grid-template-columns: 24px 0fr;
+  }
+  to {
+    grid-template-columns: 24px 1fr;
+  }
+}
+
+@keyframes fade-in-svg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+
+@keyframes fade-in-text {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
