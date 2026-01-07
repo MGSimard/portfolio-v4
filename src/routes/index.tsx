@@ -1,4 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
+import { AboutDialog } from "@/_components/AboutDialog";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -29,10 +30,7 @@ function App() {
             </Link>
           </li>
           <li>
-            {/* DRAWER? MODAL? DIALOG? */}
-            <button type="button" className="group outline-none text-nowrap">
-              [ <span className="group-hover:underline group-focus-visible:underline">ABOUT</span> ]
-            </button>
+            <AboutDialog />
           </li>
         </ul>
       </section>
