@@ -40,7 +40,7 @@ export function AboutDialog() {
               <span className="text-lg">Canada, QC</span>
             </div>
             <div className="shrink-0 text-secondary bg-secondary/25 border border-secondary px-2 py-1 leading-none text-md uppercase">
-              <span className="block mt-px">GENERALIST</span>
+              <span className="block mt-px">FULLSTACK DEVELOPER</span>
             </div>
           </DialogHeader>
           <div className="w-full border-b border-border-idle" />
