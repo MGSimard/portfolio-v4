@@ -102,13 +102,17 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
             </div>
           </DialogHeader>
           <div className="w-full border-b border-border-idle" />
-          <EmblaCarousel slides={carouselImages} options={OPTIONS} onSlideClick={handleSlideClick} />
-          <Lightbox
-            slides={carouselImages}
-            startIndex={lightboxStartIndex}
-            open={lightboxOpen}
-            onOpenChange={setLightboxOpen}
-          />
+          {carouselImages.length > 0 && (
+            <>
+              <EmblaCarousel slides={carouselImages} options={OPTIONS} onSlideClick={handleSlideClick} />
+              <Lightbox
+                slides={carouselImages}
+                startIndex={lightboxStartIndex}
+                open={lightboxOpen}
+                onOpenChange={setLightboxOpen}
+              />
+            </>
+          )}
           <p className="text-wrap">{overview}</p>
           {features.length > 0 && (
             <>
