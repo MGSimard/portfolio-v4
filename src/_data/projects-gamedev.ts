@@ -290,7 +290,7 @@ As of now, every single trap is fully functional (24) and fully scripted with bo
           stack: "Halo Infinite Forge",
           description: `Lake Hot Pursuit is based on a mix between the original Need for Speed Hot Pursuit mode and its Halo recreations over the years. The project began as a simple _"I'll show you how to do this properly"_ after experiencing the existing variants in Halo Infinite. One thing led to another, which eventually ended up becoming a feature-complete mode played by thousands since its creation.
           
-The map received 300 bookmarks and 500 plays at a 4.7 rating within the first week of beta testing - as of 2025, it stands at over 52,000 play counts, 4,700 bookmarks and 4.5/5* rating over 339 votes. The development process was publicly documented within the Forgehub Discord's WIP section. From April 2024 onwards, the map was "unlocked" for other users to fork, study, and iterate upon for their own versions. Across all its variations it garnered over 100,000 plays, solidifying itself as one of the most popular custom maps & modes in Halo Infinite's lifetime.
+The map received 300 bookmarks and 500 plays at a 4.7 rating within the first week of beta testing - as of 2025, it stands at over 52,000 play count, 4,700 bookmarks and 4.5/5* rating over 339 votes. The development process was publicly documented within the Forgehub Discord's WIP section. From April 2024 onwards, the map was "unlocked" for other users to fork, study, and iterate upon for their own versions. Across all its variations it garnered over 100,000 plays, solidifying itself as one of the most popular custom maps & modes in Halo Infinite's lifetime.
 
 #### Gameplay
 

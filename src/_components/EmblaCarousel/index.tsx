@@ -2,7 +2,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { usePrevNextButtons } from "./usePrevNext";
 import { useDotButton } from "./useDotButton";
 import type { EmblaOptionsType } from "embla-carousel";
-import { cn } from "@/_lib/utils";
+import { cn, getThumbnailUrl } from "@/_lib/utils";
 
 interface EmblaCarouselProps {
   slides: Array<{
@@ -10,10 +10,11 @@ interface EmblaCarouselProps {
     alt: string;
   }>;
   options?: EmblaOptionsType;
+  onSlideClick?: (index: number) => void;
 }
 
 export function EmblaCarousel(props: EmblaCarouselProps) {
-  const { slides, options } = props;
+  const { slides, options, onSlideClick } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
@@ -24,14 +25,20 @@ export function EmblaCarousel(props: EmblaCarouselProps) {
     <section>
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex gap-2 touch-pan-y touch-pinch-zoom select-none">
-          {slides.map((image) => (
-            <img
+          {slides.map((image, index) => (
+            <button
               key={image.url}
-              className="flex-[0_0_calc(25%-0.375rem)] aspect-square min-w-0 border object-cover object-center"
-              src={image.url}
-              alt={image.alt}
-              loading="lazy"
-            />
+              type="button"
+              onClick={() => onSlideClick?.(index)}
+              className="flex-[0_0_calc(25%-0.375rem)] aspect-square min-w-0 border cursor-pointer hover:border-secondary focus-visible:border-secondary transition-colors">
+              <img
+                className="w-full h-full object-cover object-center pointer-events-none"
+                src={getThumbnailUrl(image.url)}
+                alt={image.alt}
+                loading="lazy"
+                draggable={false}
+              />
+            </button>
           ))}
         </div>
       </div>
@@ -42,6 +49,7 @@ export function EmblaCarousel(props: EmblaCarouselProps) {
             type="button"
             className="group w-12 h-8 p-px bg-border-idle touch-manipulation text-secondary disabled:saturate-0 active:text-background disabled:text-muted hover:enabled:bg-border-enabled focus-visible:enabled:bg-border-enabled [clip-path:polygon(0_0,100%_0,100%_100%,10px_100%,0_calc(100%-10px))]"
             onClick={onPrevButtonClick}
+            aria-label="Previous slide"
             disabled={prevBtnDisabled}>
             <div className="relative w-full h-full bg-card-background grid place-items-center [clip-path:polygon(0_0,100%_0,100%_100%,10px_100%,0_calc(100%-10px))] before:content-[''] before:absolute before:inset-0 before:bg-transparent group-enabled:active:before:bg-card-clicked group-enabled:hover:before:bg-card-hover group-enabled:focus-visible:before:bg-card-hover">
               <svg className="w-[35%] h-[35%] z-1" viewBox="0 0 532 532">
@@ -56,6 +64,7 @@ export function EmblaCarousel(props: EmblaCarouselProps) {
             type="button"
             className="group w-12 h-8 p-px bg-border-idle touch-manipulation text-secondary disabled:saturate-0 active:text-background disabled:text-muted hover:enabled:bg-border-enabled focus-visible:enabled:bg-border-enabled [clip-path:polygon(0_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%)]"
             onClick={onNextButtonClick}
+            aria-label="Next slide"
             disabled={nextBtnDisabled}>
             <div className="relative w-full h-full bg-card-background grid place-items-center [clip-path:polygon(0_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%)] before:content-[''] before:absolute before:inset-0 before:bg-transparent group-enabled:active:before:bg-card-clicked group-enabled:hover:before:bg-card-hover group-enabled:focus-visible:before:bg-card-hover">
               <svg className="w-[35%] h-[35%] z-1" viewBox="0 0 532 532">

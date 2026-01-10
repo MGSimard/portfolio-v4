@@ -1,7 +1,9 @@
+import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import type { Project } from "@/_lib/types";
 import type { EmblaOptionsType } from "embla-carousel";
 import { EmblaCarousel } from "@/_components/EmblaCarousel";
+import { Lightbox } from "@/_components/Lightbox";
 import {
   Dialog,
   DialogBody,
@@ -23,6 +25,13 @@ const OPTIONS: EmblaOptionsType = { slidesToScroll: "auto" };
 
 export function ProjectDialog({ project, section }: ProjectDialogProps) {
   const { title, thumbnail, features, label, stack, overview, description, link, githubRepo, carouselImages } = project;
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxStartIndex, setLightboxStartIndex] = useState(0);
+
+  const handleSlideClick = (index: number) => {
+    setLightboxStartIndex(index);
+    setLightboxOpen(true);
+  };
   return (
     <Dialog>
       <DialogTrigger
@@ -93,7 +102,13 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
             </div>
           </DialogHeader>
           <div className="w-full border-b border-border-idle" />
-          <EmblaCarousel slides={carouselImages} options={OPTIONS} />
+          <EmblaCarousel slides={carouselImages} options={OPTIONS} onSlideClick={handleSlideClick} />
+          <Lightbox
+            slides={carouselImages}
+            startIndex={lightboxStartIndex}
+            open={lightboxOpen}
+            onOpenChange={setLightboxOpen}
+          />
           <p className="text-wrap">{overview}</p>
           {features.length > 0 && (
             <>
