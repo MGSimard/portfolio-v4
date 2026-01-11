@@ -11,7 +11,7 @@ export const projectsWebdev: ProjectsData = {
       projects: [
         {
           title: "Portfolio V4",
-          thumbnail: "./assets/wd-thumbnails/thumb_portfolio_4.webp",
+          thumbnail: "./assets/wd-thumbnails/thumb_portfolio_v4.webp",
           label: "Frontend Development",
           carouselImages: [],
           overview: "The latest (for now) iteration of my personal portfolio website.",
