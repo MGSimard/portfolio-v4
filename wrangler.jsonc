@@ -1,7 +1,10 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "mgsimard",
-  "compatibility_date": "2025-09-02",
+  "compatibility_date": "2026-01-10",
   "compatibility_flags": ["nodejs_compat"],
   "main": "@tanstack/react-start/server-entry",
+  "observability": {
+    "enabled": true,
+  },
 }
