@@ -1,66 +1,45 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
-// import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-// import { TanStackDevtools } from "@tanstack/react-devtools";
+import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { TanStackDevtools } from "@tanstack/react-devtools";
 import { ThemeProvider } from "@/_components/ThemeProvider";
 import { ThemeToggle } from "@/_components/ThemeToggle";
-import appCss from "@/_styles/global.css?url";
-import fontsCss from "@/_styles/fonts.css?url";
+
+import { configLinks, configMeta, favIcons, fontPreloads, misc, openGraph, styles, twitter } from "@/_lib/head";
 
 export const Route = createRootRoute({
   head: () => ({
-    meta: [
-      {
-        charSet: "utf-8",
-      },
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
-      },
-      {
-        title: "TanStack Start Starter",
-      },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      {
-        rel: "stylesheet",
-        href: fontsCss,
-      },
-    ],
+    meta: [...configMeta, ...openGraph, ...twitter, ...misc],
+    links: [...configLinks, ...favIcons, ...fontPreloads, ...styles],
   }),
-
   shellComponent: RootDocument,
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider>
-      <html lang="en" data-theme="dark" color-scheme="dark" suppressHydrationWarning>
-        <head>
-          <HeadContent />
-        </head>
-        <body>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        <ThemeProvider>
           <div id="root" className="flex flex-col min-h-dvh px-4">
             {children}
             <ThemeToggle />
           </div>
-          {/* <TanStackDevtools
-            config={{
-              position: "bottom-right",
-            }}
-            plugins={[
-              {
-                name: "Tanstack Router",
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-            ]}
-          /> */}
-          <Scripts />
-        </body>
-      </html>
-    </ThemeProvider>
+        </ThemeProvider>
+        <TanStackDevtools
+          config={{
+            position: "bottom-left",
+          }}
+          plugins={[
+            {
+              name: "Tanstack Router",
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+          ]}
+        />
+        <Scripts />
+      </body>
+    </html>
   );
 }
