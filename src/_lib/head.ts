@@ -81,6 +81,13 @@ export const fontPreloads = [
     type: "font/woff2",
     crossOrigin: "anonymous",
   },
+  {
+    rel: "preload",
+    href: "/fonts/rajdhani/Rajdhani-Bold.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  },
 ];
 
 export const openGraph = [
