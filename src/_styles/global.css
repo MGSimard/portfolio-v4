@@ -44,12 +44,18 @@
   --color-card-clicked: oklch(from var(--primary) l c h / 0.7);
 }
 
-/* View Transitions - morph animation for nav elements */
-::view-transition-group(nav-webdev),
-::view-transition-group(nav-gamedev),
-::view-transition-group(nav-home) {
-  animation-duration: 300ms;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-group(nav-webdev),
+  ::view-transition-group(nav-gamedev),
+  ::view-transition-group(nav-home) {
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+@media (max-width: 768px) {
+  ::view-transition-group(nav-home) {
+    animation-duration: 0ms;
+  }
 }
 
 /* Marquee scroll for overflowing titles */
