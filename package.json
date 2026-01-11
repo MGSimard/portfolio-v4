@@ -1,7 +1,25 @@
 {
   "name": "mgsimard",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
+  "author": "MGSimard <mgsimard.dev@gmail.com> (https://mgsimard.dev)",
+  "description": "PORTFOLIO_ONLINE // ACCESS_PUBLIC // SCOPE_WEBDEV_GAMEDEV",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MGSimard/portfolio-v4.git"
+  },
+  "keywords": [
+    "MGSIMARD",
+    "Portfolio",
+    "TanStack Start",
+    "Cyberpunk 2077"
+  ],
+  "bugs": {
+    "url": "https://github.com/MGSimard/portfolio-v4/issues"
+  },
+  "homepage": "https://mgsimard.dev",
   "scripts": {
     "dev": "vite dev --port 3000",
     "build": "vite build",

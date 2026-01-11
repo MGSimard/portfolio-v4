@@ -20,52 +20,24 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
   const [selectedIndex, setSelectedIndex] = useState(startIndex);
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
-
-  // Store refs to each slide's zoom controls for resetting on slide change
   const zoomRefsMap = useRef<Map<number, ReactZoomPanPinchContentRef>>(new Map());
-  // Track previous selected index for zoom reset
   const prevSelectedIndexRef = useRef(startIndex);
 
-  // Main carousel with Fade plugin - drag disabled, use buttons/keys/thumbnails to navigate
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel(
     { align: "center", containScroll: false, startIndex, watchDrag: false },
     [Fade()]
   );
 
-  // Thumbnail carousel
   const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
     containScroll: "keepSnaps",
     dragFree: true,
   });
 
-  // Reset zoom for a specific slide
   const resetSlideZoom = (index: number) => {
     const zoomRef = zoomRefsMap.current.get(index);
     if (zoomRef) {
-      zoomRef.resetTransform(0); // 0ms for instant reset
+      zoomRef.resetTransform(0);
     }
-  };
-
-  // Helper to sync state from embla
-  const syncFromEmbla = (api: NonNullable<typeof emblaMainApi>, thumbsApi: NonNullable<typeof emblaThumbsApi>) => {
-    const newIndex = api.selectedScrollSnap();
-
-    // Reset zoom on previously selected slide if it changed
-    if (prevSelectedIndexRef.current !== newIndex) {
-      resetSlideZoom(prevSelectedIndexRef.current);
-      prevSelectedIndexRef.current = newIndex;
-    }
-
-    setSelectedIndex(newIndex);
-    thumbsApi.scrollTo(newIndex);
-    setPrevBtnDisabled(!api.canScrollPrev());
-    setNextBtnDisabled(!api.canScrollNext());
-  };
-
-  // Sync: when main carousel changes, update thumbnail selection and scroll
-  const onSelect = () => {
-    if (!emblaMainApi || !emblaThumbsApi) return;
-    syncFromEmbla(emblaMainApi, emblaThumbsApi);
   };
 
   const onThumbClick = (index: number) => {
@@ -83,10 +55,24 @@ export function Lightbox({ slides, startIndex, open, onOpenChange }: LightboxPro
     emblaMainApi.scrollNext();
   };
 
-  // Subscribe to main carousel events
   useEffect(() => {
-    if (!emblaMainApi) return;
+    if (!emblaMainApi || !emblaThumbsApi) return;
 
+    const syncFromEmbla = (api: NonNullable<typeof emblaMainApi>, thumbsApi: NonNullable<typeof emblaThumbsApi>) => {
+      const newIndex = api.selectedScrollSnap();
+      if (prevSelectedIndexRef.current !== newIndex) {
+        resetSlideZoom(prevSelectedIndexRef.current);
+        prevSelectedIndexRef.current = newIndex;
+      }
+      setSelectedIndex(newIndex);
+      thumbsApi.scrollTo(newIndex);
+      setPrevBtnDisabled(!api.canScrollPrev());
+      setNextBtnDisabled(!api.canScrollNext());
+    };
+
+    const onSelect = () => {
+      syncFromEmbla(emblaMainApi, emblaThumbsApi);
+    };
     emblaMainApi.on("select", onSelect);
     onSelect();
 
