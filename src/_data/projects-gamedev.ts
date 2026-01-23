@@ -11,7 +11,7 @@ export const projectsGamedev: ProjectsData = {
       projects: [
         {
           title: "Terminal (WIP)",
-          thumbnail: "./assets/gd-thumbnails/thumb_terminal.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_terminal.webp",
           label: "Level Design",
           carouselImages: [
             {
@@ -87,7 +87,7 @@ Beyond that, this map would still require a good amount of stuff to be considere
       projects: [
         {
           title: "DEATHRUN (WIP)",
-          thumbnail: "./assets/gd-thumbnails/thumb_deathrun.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_deathrun.webp",
           label: "Level Design",
           carouselImages: [
             {
@@ -192,7 +192,7 @@ As of now, every single trap is fully functional (24) and fully scripted with bo
         },
         {
           title: "Lake Hot Pursuit",
-          thumbnail: "./assets/gd-thumbnails/thumb_lake-hot-pursuit.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_lake-hot-pursuit.webp",
           label: "Level Design",
           carouselImages: [
             {
@@ -308,7 +308,7 @@ After a few different scripting and game mode iterations, a heavy modification o
         },
         {
           title: "Overdose",
-          thumbnail: "./assets/gd-thumbnails/thumb_overdose.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_overdose.webp",
           label: "Level Design",
           carouselImages: [
             {
@@ -404,7 +404,7 @@ The map contains defensible areas, several hiding spots and obstacles which the 
         },
         {
           title: "Junk Flea",
-          thumbnail: "./assets/gd-thumbnails/thumb_junk-flea.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_junk-flea.webp",
           label: "Level Design",
           carouselImages: [
             {
@@ -540,7 +540,7 @@ Not specific to Junk Flea, but since it was developed alongside it I decided to 
       projects: [
         {
           title: "Station 58",
-          thumbnail: "./assets/gd-thumbnails/thumb_station-58.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_station-58.webp",
           label: "Level Design",
           carouselImages: [
             {
@@ -751,7 +751,7 @@ All in all, despite the clear limitations set forward by the primitive level of 
         },
         {
           title: "Lumbridge Castle",
-          thumbnail: "./assets/gd-thumbnails/thumb_lumbridge-castle.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_lumbridge-castle.webp",
           label: "Level Design",
           carouselImages: [
             { url: "/assets/gamedev/tower-unite/lumbridge-castle/lumbridge-castle_1.webp", alt: "Lumbridge Castle 1" },
@@ -803,7 +803,7 @@ All in all, despite the clear limitations set forward by the primitive level of 
         },
         {
           title: "Quindecim",
-          thumbnail: "./assets/gd-thumbnails/thumb_quindecim.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_quindecim.webp",
           label: "Level Design",
           carouselImages: [
             { url: "/assets/gamedev/tower-unite/quindecim/quindecim_1.webp", alt: "Quindecim 1" },
@@ -834,7 +834,7 @@ All in all, despite the clear limitations set forward by the primitive level of 
         },
         {
           title: "Exploded Cinema",
-          thumbnail: "./assets/gd-thumbnails/thumb_exploded-cinema.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_exploded-cinema.webp",
           label: "Level Design",
           carouselImages: [
             { url: "/assets/gamedev/tower-unite/exploded-cinema/exploded-cinema_1.webp", alt: "Exploded Cinema 1" },
@@ -859,7 +859,7 @@ All in all, despite the clear limitations set forward by the primitive level of 
         },
         {
           title: "Misc",
-          thumbnail: "./assets/gd-thumbnails/thumb_tu-misc.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_tu-misc.webp",
           label: "Level Design",
           carouselImages: [
             { url: "/assets/gamedev/tower-unite/misc/art-gallery_1.webp", alt: "Art Gallery 1" },
@@ -907,7 +907,7 @@ All in all, despite the clear limitations set forward by the primitive level of 
       projects: [
         {
           title: "mp_shop",
-          thumbnail: "./assets/gd-thumbnails/thumb_mp_shop.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_mp_shop.webp",
           label: "Level Design",
           carouselImages: [
             { url: "/assets/gamedev/roblox-studio/mp_shop/mp_shop_1.webp", alt: "mp_shop 1" },
@@ -936,7 +936,7 @@ The map was also widely played with custom game modes, more notably the likes of
         },
         {
           title: "Q3DM17",
-          thumbnail: "./assets/gd-thumbnails/thumb_q3dm17.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_q3dm17.webp",
           label: "Level Design",
           carouselImages: [
             { url: "/assets/gamedev/roblox-studio/q3dm17/q3dm17_1.webp", alt: "q3dm17 1" },
@@ -956,7 +956,7 @@ I also learned a couple of plugin toolsets to facilitate my time since Roblox St
         },
         {
           title: "Thy Kingdom Come",
-          thumbnail: "./assets/gd-thumbnails/thumb_thy-kingdom-come.webp",
+          thumbnail: "/assets/gd-thumbnails/thumb_thy-kingdom-come.webp",
           label: "Level Design",
           carouselImages: [
             {
