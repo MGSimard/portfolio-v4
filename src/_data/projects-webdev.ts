@@ -96,7 +96,7 @@ And for the record, [yes I do actually play on a computer keyboard](https://www.
         },
         {
           title: "Emerald",
-          thumbnail: "./assets/wd-thumbnails/thumb_emerald.webp",
+          thumbnail: "/assets/wd-thumbnails/thumb_emerald.webp",
           label: "Frontend Development",
           carouselImages: [],
           overview:
@@ -408,7 +408,7 @@ For the record: Wordpress & Divi suck. Never again.`,
         },
         {
           title: "Cloropleth Map",
-          thumbnail: "./assets/wd-thumbnails/thumb_cloropleth.webp",
+          thumbnail: "/assets/wd-thumbnails/thumb_cloropleth.webp",
           label: "Frontend Development",
           carouselImages: [],
           overview:
@@ -433,7 +433,7 @@ For the record: Wordpress & Divi suck. Never again.`,
         },
         {
           title: "Javascript Calculator",
-          thumbnail: "./assets/wd-thumbnails/thumb_calculator.webp",
+          thumbnail: "/assets/wd-thumbnails/thumb_calculator.webp",
           label: "Frontend Development",
           carouselImages: [],
           overview: "Course project: A calculator built with React, allowing for basic arithmetic operations.",
@@ -469,7 +469,7 @@ For the record: Wordpress & Divi suck. Never again.`,
         },
         {
           title: "Pomodoro Clock",
-          thumbnail: "./assets/wd-thumbnails/thumb_pomodoro.webp",
+          thumbnail: "/assets/wd-thumbnails/thumb_pomodoro.webp",
           label: "Frontend Development",
           carouselImages: [],
           overview: "Course project: A pomodoro clock, allows setting session & break periods.",
@@ -505,7 +505,7 @@ For the record: Wordpress & Divi suck. Never again.`,
         },
         {
           title: "Documentation Page",
-          thumbnail: "./assets/wd-thumbnails/thumb_docs.webp",
+          thumbnail: "/assets/wd-thumbnails/thumb_docs.webp",
           label: "Frontend Development",
           carouselImages: [],
           overview:
