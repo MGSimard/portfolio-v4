@@ -56,7 +56,7 @@ export function ProjectDialog({ project, section }: ProjectDialogProps) {
               <img
                 src={thumbnail}
                 alt="Project Thumbnail"
-                className="h-full w-full object-cover object-center border-t border-trim-idle"
+                className="h-full w-full object-cover object-center border-t border-trim-idle group-hover:scale-105 group-focus-visible:scale-105 transition-transform duration-150 will-change-transform"
               />
             </div>
           </button>
