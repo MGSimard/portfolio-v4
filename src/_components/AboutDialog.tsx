@@ -45,7 +45,7 @@ export function AboutDialog() {
           </DialogHeader>
           <div className="w-full border-b border-border-idle" />
           <p className="text-wrap">
-            Worked professionally in Freelance QA, UI/UX and Usability Testing for web apps & video games. Level
+            Fullstack developer focusing on Frontend. Worked professionally in Freelance QA, UI/UX and Usability Testing for web apps & video games. Level
             Designer & Environmental Artist primarily through level editors — conventionally referred to as a "Mapper".
           </p>
           <div className="w-full border-b border-border-idle" />
@@ -53,7 +53,6 @@ export function AboutDialog() {
           <ul className="list-[square] pl-4 text-secondary">
             <li>HTML, JavaScript & TypeScript, CSS & Tailwind CSS</li>
             <li>React, TanStack Start, Next.js, Astro</li>
-            <li>CSS & Tailwind CSS</li>
             <li>PostgreSQL & Drizzle ORM</li>
           </ul>
           <p>
