@@ -1,7 +1,11 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { AboutDialog } from "@/_components/AboutDialog";
+import { SITE_URL } from "@/_lib/consts";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    links: [{ rel: "canonical", href: SITE_URL }],
+  }),
   component: App,
 });
 

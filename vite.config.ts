@@ -5,7 +5,6 @@ import viteTsConfigPaths from "vite-tsconfig-paths";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { SITE_URL } from "./src/_lib/consts";
 
 const config = defineConfig({
   server: {
@@ -22,10 +21,6 @@ const config = defineConfig({
       prerender: {
         enabled: true,
         crawlLinks: true, // Discover all linkable pages
-      },
-      sitemap: {
-        enabled: true,
-        host: SITE_URL,
       },
     }),
     viteReact({

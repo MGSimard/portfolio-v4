@@ -25,10 +25,6 @@ export const configMeta = [
 
 export const configLinks = [
   {
-    rel: "canonical",
-    href: SITE_URL,
-  },
-  {
     rel: "sitemap",
     href: "/sitemap.xml",
   },
