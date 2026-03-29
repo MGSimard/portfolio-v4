@@ -1,5 +1,5 @@
 import { Button as BaseButton } from "@base-ui/react/button";
-import { cn } from "@/_lib/utils";
+import { cn } from "@/lib/utils";
 
 export function HotkeyButton({
   className,

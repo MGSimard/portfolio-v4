@@ -1,9 +1,9 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
-import type { Project } from "@/_lib/types";
+import type { Project } from "@/lib/types";
 import type { EmblaOptionsType } from "embla-carousel";
-import { EmblaCarousel } from "@/_components/EmblaCarousel";
-import { Lightbox } from "@/_components/Lightbox";
+import { EmblaCarousel } from "@/components/EmblaCarousel";
+import { Lightbox } from "@/components/Lightbox";
 import {
   Dialog,
   DialogBody,
@@ -12,9 +12,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/_components/BaseUI/Dialog";
-import { HotkeyButton } from "@/_components/BaseUI/HotkeyButton";
-import { cn } from "@/_lib/utils";
+} from "@/components/BaseUI/Dialog";
+import { HotkeyButton } from "@/components/BaseUI/HotkeyButton";
+import { cn } from "@/lib/utils";
 
 interface ProjectDialogProps {
   project: Project;

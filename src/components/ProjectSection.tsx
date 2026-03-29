@@ -1,5 +1,5 @@
-import type { Project } from "@/_lib/types";
-import { ProjectDialog } from "@/_components/ProjectDialog";
+import type { Project } from "@/lib/types";
+import { ProjectDialog } from "@/components/ProjectDialog";
 
 interface ProjectSectionProps {
   heading: string;

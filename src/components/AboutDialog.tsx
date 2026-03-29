@@ -6,9 +6,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/_components/BaseUI/Dialog";
-import { HotkeyButton } from "@/_components/BaseUI/HotkeyButton";
-import { IconGithub, IconGlobe, IconMail, IconX } from "@/_components/Icons";
+} from "@/components/BaseUI/Dialog";
+import { HotkeyButton } from "@/components/BaseUI/HotkeyButton";
+import { IconGithub, IconGlobe, IconMail, IconX } from "@/components/Icons";
 
 export function AboutDialog() {
   return (

@@ -1,6 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { AboutDialog } from "@/_components/AboutDialog";
-import { SITE_URL } from "@/_lib/consts";
+import { AboutDialog } from "@/components/AboutDialog";
+import { SITE_URL } from "@/lib/consts";
 
 export const Route = createFileRoute("/")({
   head: () => ({

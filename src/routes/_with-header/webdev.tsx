@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ProjectSection } from "@/_components/ProjectSection";
-import { projectsWebdev } from "@/_data/projects-webdev";
-import { SITE_URL } from "@/_lib/consts";
+import { ProjectSection } from "@/components/ProjectSection";
+import { projectsWebdev } from "@/data/projects-webdev";
+import { SITE_URL } from "@/lib/consts";
 
 export const Route = createFileRoute("/_with-header/webdev")({
   head: () => ({

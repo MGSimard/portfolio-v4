@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Fade from "embla-carousel-fade";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 import type { ReactZoomPanPinchContentRef } from "react-zoom-pan-pinch";
-import { cn, getThumbnailUrl } from "@/_lib/utils";
+import { cn, getThumbnailUrl } from "@/lib/utils";
 
 interface LightboxProps {
   slides: Array<{

@@ -1,8 +1,8 @@
 import { createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
-import { NotFound } from "@/_components/NotFound";
+import { NotFound } from "@/components/NotFound";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
-// Create a new router instance
 export const getRouter = () => {
   const router = createRouter({
     routeTree,
@@ -11,9 +11,9 @@ export const getRouter = () => {
     scrollRestoration: true,
     defaultErrorComponent: (err) => <p>{err.error.stack}</p>,
     defaultNotFoundComponent: () => <NotFound />,
-    Wrap: (props: { children: React.ReactNode }) => {
-      return <>{props.children}</>;
-    },
+    Wrap: ({ children }: { children: React.ReactNode }) => (
+      <ThemeProvider defaultTheme="system">{children}</ThemeProvider>
+    ),
   });
 
   return router;

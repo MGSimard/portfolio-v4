@@ -1,4 +1,4 @@
-import type { ProjectsData } from "@/_lib/types";
+import type { ProjectsData } from "@/lib/types";
 
 export const projectsWebdev: ProjectsData = {
   name: "projectsWD",

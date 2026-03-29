@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ProjectSection } from "@/_components/ProjectSection";
-import { projectsGamedev } from "@/_data/projects-gamedev";
-import { SITE_URL } from "@/_lib/consts";
+import { ProjectSection } from "@/components/ProjectSection";
+import { projectsGamedev } from "@/data/projects-gamedev";
+import { SITE_URL } from "@/lib/consts";
 
 export const Route = createFileRoute("/_with-header/gamedev")({
   head: () => ({

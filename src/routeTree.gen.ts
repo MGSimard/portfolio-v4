@@ -74,7 +74,7 @@ declare module '@tanstack/react-router' {
     '/_with-header': {
       id: '/_with-header'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof WithHeaderRouteRouteImport
       parentRoute: typeof rootRouteImport
     }

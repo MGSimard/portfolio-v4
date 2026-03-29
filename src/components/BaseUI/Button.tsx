@@ -1,7 +1,7 @@
 import { Button as BaseButton } from "@base-ui/react/button";
 import { cva } from "class-variance-authority";
 import type { VariantProps } from "class-variance-authority";
-import { cn } from "@/_lib/utils";
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "flex items-center justify-center whitespace-nowrap outline-0 border font-inherit text-base font-medium leading-6 select-none focus-visible:outline-2",

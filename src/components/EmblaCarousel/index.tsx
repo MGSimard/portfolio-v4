@@ -2,7 +2,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { usePrevNextButtons } from "./usePrevNext";
 import { useDotButton } from "./useDotButton";
 import type { EmblaOptionsType } from "embla-carousel";
-import { cn, getThumbnailUrl } from "@/_lib/utils";
+import { cn, getThumbnailUrl } from "@/lib/utils";
 
 interface EmblaCarouselProps {
   slides: Array<{

@@ -13,7 +13,7 @@
   --foreground: var(--primary);
   --muted: oklch(0.4701 0.0112 285.96);
 }
-:root[data-theme="dark"] {
+.dark {
   --primary: oklch(0.6625 0.2045 26.71);
   --secondary: oklch(0.8965 0.1273 200.71);
   --flavour: oklch(0.653 0.0015 106.44);
@@ -58,37 +58,9 @@
   }
 }
 
-/* Marquee scroll for overflowing titles */
-.marquee-container {
-  container-type: inline-size;
-}
-.marquee-text {
-  max-width: 100%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .group:hover .marquee-text,
-  .group:focus-visible .marquee-text {
-    max-width: none;
-    overflow: visible;
-    animation: marquee-scroll 4s linear infinite;
-  }
-}
-@keyframes marquee-scroll {
-  0%,
-  15% {
-    transform: translateX(0);
-  }
-  50%,
-  100% {
-    transform: translateX(min(0px, calc(-100% + 100cqw)));
-  }
-}
-
 @layer base {
   * {
-    @apply border-border-idle outline-ring/50 outline-offset-4;
+    @apply border-border-idle outline-offset-4 outline-ring/50;
   }
   html {
     @apply bg-background text-foreground;
@@ -129,9 +101,6 @@
   #root {
     isolation: isolate;
   }
-  header {
-    flex-shrink: 0;
-  }
   h1,
   h2,
   h3,
@@ -169,59 +138,102 @@
   button:not(:disabled) {
     cursor: pointer;
   }
-}
-
-.Viewport {
-  &::before,
-  &::after {
-    content: "";
-    display: block;
-    left: 0;
-    width: 100%;
-    position: absolute;
-    pointer-events: none;
-    border-radius: 0.375rem;
-    transition: height 0.1s ease-out;
+  .marquee-container {
+    container-type: inline-size;
   }
-
-  &::before {
-    --scroll-area-overflow-y-start: inherit;
-    top: 0;
-    height: min(40px, var(--scroll-area-overflow-y-start));
-    background: linear-gradient(to bottom, var(--background), transparent);
+  .marquee-text {
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
-
-  &::after {
-    --scroll-area-overflow-y-end: inherit;
-    bottom: 0;
-    height: min(40px, var(--scroll-area-overflow-y-end, 40px));
-    background: linear-gradient(to top, var(--background), transparent);
+  @media (prefers-reduced-motion: no-preference) {
+    .group:hover .marquee-text,
+    .group:focus-visible .marquee-text {
+      max-width: none;
+      overflow: visible;
+      animation: marquee-scroll 4s linear infinite;
+    }
   }
-}
-
-@keyframes expand-right {
-  from {
-    grid-template-columns: 24px 0fr;
-  }
-  to {
-    grid-template-columns: 24px 1fr;
-  }
-}
-
-@keyframes fade-in-svg {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.2;
+  .Viewport {
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      left: 0;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      border-radius: 0.375rem;
+      transition: height 0.1s ease-out;
+    }
+    &::before {
+      --scroll-area-overflow-y-start: inherit;
+      top: 0;
+      height: min(40px, var(--scroll-area-overflow-y-start));
+      background: linear-gradient(to bottom, var(--background), transparent);
+    }
+    &::after {
+      --scroll-area-overflow-y-end: inherit;
+      bottom: 0;
+      height: min(40px, var(--scroll-area-overflow-y-end, 40px));
+      background: linear-gradient(to top, var(--background), transparent);
+    }
   }
 }
 
-@keyframes fade-in-text {
-  from {
-    opacity: 0;
+@layer animations {
+  @keyframes expand-right {
+    from {
+      grid-template-columns: 24px 0fr;
+    }
+    to {
+      grid-template-columns: 24px 1fr;
+    }
   }
-  to {
-    opacity: 1;
+  @keyframes fade-in-svg {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.2;
+    }
   }
+  @keyframes fade-in-text {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes marquee-scroll {
+    0%,
+    15% {
+      transform: translateX(0);
+    }
+    50%,
+    100% {
+      transform: translateX(min(0px, calc(-100% + 100cqw)));
+    }
+  }
+}
+
+/* Theme icon visibility - CSS-only, no hydration mismatch */
+[data-theme-preference="light"] [data-theme-icon="dark"],
+[data-theme-preference="light"] [data-theme-icon="system"],
+[data-theme-preference="dark"] [data-theme-icon="light"],
+[data-theme-preference="dark"] [data-theme-icon="system"],
+[data-theme-preference="system"] [data-theme-icon="light"],
+[data-theme-preference="system"] [data-theme-icon="dark"] {
+  display: none;
+}
+
+/* Disable transitions during theme changes */
+[data-disable-transitions],
+[data-disable-transitions]::before,
+[data-disable-transitions]::after,
+[data-disable-transitions] *,
+[data-disable-transitions] *::before,
+[data-disable-transitions] *::after {
+  transition: none !important;
 }

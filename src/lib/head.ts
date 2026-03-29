@@ -1,6 +1,6 @@
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/_lib/consts";
-import appCss from "@/_styles/global.css?url";
-import fontsCss from "@/_styles/fonts.css?url";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/consts";
+import appCss from "@/css/global.css?url";
+import fontsCss from "@/css/fonts.css?url";
 
 export const configMeta = [
   {

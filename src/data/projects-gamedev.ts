@@ -1,4 +1,4 @@
-import type { ProjectsData } from "@/_lib/types";
+import type { ProjectsData } from "@/lib/types";
 
 export const projectsGamedev: ProjectsData = {
   name: "projectsGD",

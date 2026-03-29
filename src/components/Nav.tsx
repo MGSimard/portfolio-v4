@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 
 export function Nav() {
   return (
-    <header className="select-none py-4">
+    <header className="select-none py-4 shrink-0">
       <nav className="flex justify-center items-center gap-8 md:gap-16 text-lg font-medium">
         <Link to="/" className="font-medium [view-transition-name:nav-home] shrink-0" aria-label="Home" viewTransition>
           <span className="md:before:content-['MGSIMARD'] before:content-['//']" aria-hidden></span>

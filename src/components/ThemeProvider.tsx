@@ -1,18 +1,18 @@
 /** CUSTOM THEME PROVIDER - SSR Compatible with FOUC Prevention
  * - Server-side rendering support with hydration safety
- * - Zero FOUC via inline script execution
+ * - FOUC prevented by head script in __root.tsx
  * - Transition disabling during theme changes
  * - Cross-tab synchronization via storage events
  * - Real-time system theme change detection
- * - Uses React 19's use() hook as useContext is now deprecated
+ * - Uses React 19's use() hook for Context consumption
+ * - Class-based theming for Tailwind/Shadcn compatibility
  * - Proper colorScheme CSS property setting for browser integration
  * - Theme validation to prevent invalid states
  */
 import { createContext, use, useEffect, useState, useSyncExternalStore } from "react";
-import { ScriptOnce } from "@tanstack/react-router";
 
 type ResolvedTheme = "light" | "dark";
-type Theme = ResolvedTheme | "system";
+export type Theme = ResolvedTheme | "system";
 
 interface ThemeContextTypes {
   theme: Theme;
@@ -33,7 +33,6 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children, defaultTheme = "system", storageKey = STORAGE_KEY }: ThemeProviderProps) {
-  // Return defaultTheme on server, sync stored value on client
   const [theme, setTheme] = useState<Theme>(() => {
     if (!isBrowser) return defaultTheme;
     try {
@@ -47,7 +46,6 @@ export function ThemeProvider({ children, defaultTheme = "system", storageKey = 
   const fallbackResolvedTheme: ResolvedTheme = defaultTheme === "dark" ? "dark" : "light";
 
   const getSystemResolvedTheme = (): ResolvedTheme => {
-    if (!isBrowser) return fallbackResolvedTheme;
     try {
       return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     } catch {
@@ -59,34 +57,33 @@ export function ThemeProvider({ children, defaultTheme = "system", storageKey = 
   const resolvedTheme: ResolvedTheme = theme === "system" ? systemTheme : theme;
 
   const updateTheme = (newTheme: Theme) => {
-    if (isBrowser) {
-      const enableTransitions = disableTransitions();
-      setTheme(newTheme);
-      try {
-        localStorage.setItem(storageKey, newTheme);
-      } catch (error) {
-        console.error("ERROR: Failed to save theme preference:", error);
-      }
-      requestAnimationFrame(enableTransitions);
-    } else {
-      setTheme(newTheme);
+    const enableTransitions = disableTransitions();
+    setTheme(newTheme);
+    try {
+      localStorage.setItem(storageKey, newTheme);
+    } catch (error) {
+      console.error("ERROR: Failed to save theme preference:", error);
     }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(enableTransitions);
+    });
   };
 
   useEffect(() => {
-    if (!isBrowser) return;
     const root = document.documentElement;
-    root.setAttribute("data-theme", resolvedTheme);
+    root.setAttribute("data-theme-preference", theme);
+    root.classList.toggle("dark", resolvedTheme === "dark");
     root.style.colorScheme = resolvedTheme;
-  }, [resolvedTheme]);
+  }, [theme, resolvedTheme]);
 
   useEffect(() => {
-    if (!isBrowser) return;
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === storageKey && e.newValue && isValidTheme(e.newValue)) {
         const enableTransitions = disableTransitions();
         setTheme(e.newValue);
-        requestAnimationFrame(enableTransitions);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(enableTransitions);
+        });
       }
     };
 
@@ -94,30 +91,9 @@ export function ThemeProvider({ children, defaultTheme = "system", storageKey = 
     return () => window.removeEventListener("storage", handleStorageChange);
   }, [storageKey]);
 
-  return (
-    <ThemeContext value={{ theme, resolvedTheme, setTheme: updateTheme }}>
-      <ScriptOnce>
-        {`(function(storageKey) {
-          try {
-            const themes = ['light', 'dark', 'system'];
-            const stored = localStorage.getItem(storageKey);
-            const isValid = stored && themes.includes(stored) ? stored : null;
-            const prefersDark = typeof window !== 'undefined' &&
-              typeof window.matchMedia === 'function' &&
-              window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const systemTheme = prefersDark ? 'dark' : 'light';
-            const resolvedPreference = isValid ?? 'system';
-            const resolved = resolvedPreference === 'system' ? systemTheme : resolvedPreference;
-            const applied = resolved === 'dark' ? 'dark' : 'light';
-            const root = document.documentElement;
-            root.setAttribute('data-theme', applied);
-            root.style.colorScheme = applied;
-          } catch {}
-        })(${JSON.stringify(storageKey)})`}
-      </ScriptOnce>
-      {children}
-    </ThemeContext>
-  );
+  const contextValue = { theme, resolvedTheme, setTheme: updateTheme };
+
+  return <ThemeContext value={contextValue}>{children}</ThemeContext>;
 }
 
 export function useTheme() {
@@ -133,29 +109,15 @@ function isValidTheme(value: string): value is Theme {
 }
 
 function subscribeToSystemTheme(onChange: () => void) {
-  if (!isBrowser || typeof window.matchMedia !== "function") {
-    return () => undefined;
-  }
-
-  try {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    if (typeof mediaQuery.addEventListener !== "function") {
-      return () => undefined;
-    }
-
-    const handler = () => onChange();
-    mediaQuery.addEventListener("change", handler);
-    return () => mediaQuery.removeEventListener("change", handler);
-  } catch {
-    return () => undefined;
-  }
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  const handler = () => onChange();
+  mediaQuery.addEventListener("change", handler);
+  return () => mediaQuery.removeEventListener("change", handler);
 }
 
 function disableTransitions() {
   const root = document.documentElement;
   root.dataset.disableTransitions = "";
-  // Force a reflow
-  // Regarding getComputedStyle vs requestAnimationFrame: https://paco.me/writing/disable-theme-transitions
   void window.getComputedStyle(root).opacity;
   return () => {
     delete root.dataset.disableTransitions;

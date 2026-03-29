@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { cn } from "@/_lib/utils";
+import { cn } from "@/lib/utils";
 
 export function NotFound() {
   return (

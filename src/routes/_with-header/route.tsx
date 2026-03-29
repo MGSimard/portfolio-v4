@@ -1,6 +1,6 @@
 import { Outlet, createFileRoute } from "@tanstack/react-router";
-import { Nav } from "@/_components/Nav";
-import { Footer } from "@/_components/Footer";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/_with-header")({
   component: RouteComponent,
