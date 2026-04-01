@@ -22,7 +22,7 @@ const config = defineConfig({
       sitemap: {
         enabled: true,
         host: SITE_URL,
-      }
+      },
     }),
     react(),
     babel({ presets: [reactCompilerPreset()] }),
