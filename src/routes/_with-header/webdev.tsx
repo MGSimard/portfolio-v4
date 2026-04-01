@@ -29,6 +29,7 @@ function RouteComponent() {
           onProjectOpenChange={(projectSlug, open) => {
             void navigate({
               search: { project: open ? projectSlug : undefined },
+              resetScroll: false,
             });
           }}
         />
